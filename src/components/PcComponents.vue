@@ -81,9 +81,10 @@ const pcComponents = ref([
 const emit = defineEmits(["updateComponentSelection"]);
 
 const handleClick = (e) => {
-  if (e.target.dataset.component) {
+  const targetComponentDiv = e.target.closest("div[data-component]");
+  if (targetComponentDiv) {
     emit("updateComponentSelection", {
-      selectedItem: e.target.dataset.component,
+      selectedItem: targetComponentDiv.dataset.component,
     });
   }
 };
@@ -98,7 +99,7 @@ const handleClick = (e) => {
         class="bg-gray-900/80 shadow-sm rounded transition cursor-pointer hover:bg-gray-900/90 border border-gray-900/80 hover:border-gray-50"
       >
         <div
-          class="flex items-center gap-6 px-4 py-8 sm:px-6"
+          class="flex items-center gap-6 px-4 py-8 sm:px-6 component"
           :data-component="pcComponent.slug"
         >
           <component :is="pcComponent.icon"></component>
