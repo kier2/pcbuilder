@@ -1,7 +1,18 @@
 <script setup>
+import { ref } from "vue";
 const props = defineProps({
   selectedItem: Object,
 });
+const Motherboard = ref([
+  {
+    model: "GA-H110M-S2H",
+    brand: "Gigabyte",
+  },
+  {
+    model: "H110M-E/M.2",
+    brand: "Asus",
+  },
+]);
 </script>
 
 <template>
