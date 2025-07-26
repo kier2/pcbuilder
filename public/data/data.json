@@ -1,0 +1,49 @@
+{
+  "motherboards": [
+    {
+      "id": "mb1",
+      "name": "ASUS ROG Strix Z790-E Gaming WiFi",
+      "socket": "LGA1700",
+      "chipset": "Z790",
+      "usdPrice": 350,
+      "phpPrice": 20000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/4198724634995938274_0"
+    },
+    {
+      "id": "mb2",
+      "name": "MSI MAG B650 TOMAHAWK WIFI",
+      "socket": "AM5",
+      "chipset": "B650",
+      "usdPrice": 200,
+      "phpPrice": 12000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/473135923434306691_0"
+    },
+    {
+      "id": "mb3",
+      "name": "GIGABYTE Z790 AORUS ELITE AX",
+      "socket": "LGA1700",
+      "chipset": "Z790",
+      "usdPrice": 250,
+      "phpPrice": 15000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/2746624487628821023_0"
+    },
+    {
+      "id": "mb4",
+      "name": "ASRock B650E Steel Legend WiFi",
+      "socket": "AM5",
+      "chipset": "B650E",
+      "usdPrice": 220,
+      "phpPrice": 13000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/1836091859820605306_0"
+    },
+    {
+      "id": "mb5",
+      "name": "NZXT N7 Z790",
+      "socket": "LGA1700",
+      "chipset": "Z790",
+      "usdPrice": 230,
+      "phpPrice": 14000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/17812854315601407622_0"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ import {
 const pcComponents = ref([
   {
     name: "Motherboard",
-    slug: "motherboard",
+    slug: "motherboards",
     icon: Microchip,
     selectedItem: "Select Item",
     price: "",
@@ -91,7 +91,7 @@ const handleClick = (e) => {
 </script>
 <template>
   <div class="overflow-hidden shadow sm:rounded-md w-full">
-    <ul role="list" class="text-gray-300 flex flex-col gap-2">
+    <ul role="list" class="text-gray-300 flex flex-col space-y-3">
       <li
         v-for="(pcComponent, index) in pcComponents"
         :key="index"
