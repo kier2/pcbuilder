@@ -6,7 +6,7 @@ import SelectedComponents from "@/components/PcComponents.vue";
 const pcComponentsData = ref({});
 
 const selectedComponent = (pcComponent) => {
-  return pcComponentsData.value.item = pcComponent.selectedItem;
+  return pcComponentsData.value.slug = pcComponent.selectedItem;
 };
 </script>
 
