@@ -7,7 +7,8 @@
       "chipset": "Z790",
       "usdPrice": 350,
       "phpPrice": 20000,
-      "img": "http://googleusercontent.com/image_collection/image_retrieval/4198724634995938274_0"
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/4198724634995938274_0",
+      "specs": []
     },
     {
       "id": "mb2",
@@ -16,7 +17,8 @@
       "chipset": "B650",
       "usdPrice": 200,
       "phpPrice": 12000,
-      "img": "http://googleusercontent.com/image_collection/image_retrieval/473135923434306691_0"
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/473135923434306691_0",
+      "specs": []
     },
     {
       "id": "mb3",
@@ -25,7 +27,8 @@
       "chipset": "Z790",
       "usdPrice": 250,
       "phpPrice": 15000,
-      "img": "http://googleusercontent.com/image_collection/image_retrieval/2746624487628821023_0"
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/2746624487628821023_0",
+      "specs": []
     },
     {
       "id": "mb4",
@@ -34,7 +37,8 @@
       "chipset": "B650E",
       "usdPrice": 220,
       "phpPrice": 13000,
-      "img": "http://googleusercontent.com/image_collection/image_retrieval/1836091859820605306_0"
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/1836091859820605306_0",
+      "specs": []
     },
     {
       "id": "mb5",
@@ -43,7 +47,8 @@
       "chipset": "Z790",
       "usdPrice": 230,
       "phpPrice": 14000,
-      "img": "http://googleusercontent.com/image_collection/image_retrieval/17812854315601407622_0"
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/17812854315601407622_0",
+      "specs": []
     }
   ]
 }
