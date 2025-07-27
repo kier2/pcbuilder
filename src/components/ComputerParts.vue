@@ -1,29 +1,20 @@
 <script setup>
   import { ref, onMounted, computed } from "vue";
 
+  // props
   const props = defineProps({
     selectedItem: Object,
   });
 
+  // emits
+  const  emit = defineEmits(['selectedParts']);
+
+  // variables
   const allComponentData = ref({});
   const loading = ref(true);
   const error = ref(null);
 
-  const Motherboard = ref([
-    {
-      model: "GA-H110M-S2H",
-      brand: "Gigabyte",
-      img: '',
-      price: ''
-    },
-    {
-      model: "H110M-E/M.2",
-      brand: "Asus",
-      img: '',
-      price: ''
-    },
-  ]);
-
+  // Database Actions
   const fetchData = async () => {
     try{
       const res = await fetch('/data/data.json');
@@ -41,6 +32,16 @@
     }
   }
 
+  // Events
+  const handleSelectedParts = (id, name, img ) => {
+    emit('selectedParts', {
+      selectedPartId: id,
+      selectedComponent: props.selectedItem.slug,
+      selectedComponentsPart: name,
+      selectedComponentsPartImg: img,
+    })
+  }
+
   onMounted(() => {
     fetchData();
   })
@@ -50,7 +51,7 @@
       return [];
     }
     const parts = allComponentData.value[props.selectedItem.slug];
-    console.log(parts)
+    // console.log(parts)
     return parts || [];
   });
 </script>
@@ -80,7 +81,10 @@
               </div>
               <div class="w-full flex items-center justify-between">
                 <button class="border border-indigo-400 cursor-pointer hover:bg-indigo-400 px-3 py-1.5 text-xs rounded" type="button">Info</button>
-                <button class="border border-indigo-400 cursor-pointer hover:bg-indigo-400 px-3 py-1.5 text-xs rounded" type="button">Select</button>
+                <button
+                  class="border border-indigo-400 cursor-pointer hover:bg-indigo-400 px-3 py-1.5 text-xs rounded"
+                  type="button"
+                  @click="handleSelectedParts(part.id, part.name, part.img)">Select</button>
               </div>
             </div>
         </li>
