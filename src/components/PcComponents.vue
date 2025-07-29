@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import {
   Microchip,
   Cpu,
@@ -80,7 +80,7 @@ const pcComponents = ref([
 
 // variables
 const selectedComponent = ref();
-const selectedPartsData = ref({})
+// const selectedPartsData = ref({})
 
 // props
 const props = defineProps({
@@ -92,19 +92,17 @@ const props = defineProps({
 const emit = defineEmits(["updateComponentSelection"]);
 
 // Database Actions
-const fetchSelectedParts = () => {
-  if(Object.keys(props.selectedParts).length){
-    selectedPartsData.value.name = props.selectedParts.name
-  }
+// const fetchSelectedParts = () => {
+//   if(Object.keys(props.selectedParts).length){
+//     selectedPartsData.value.name = props.selectedParts.name
+//   }
+// }
+
+const getSelectedPartName = (slug) =>  {
+  const part = props.selectedParts?.[slug];
+  // console.log(part)
+  return part?.name ?? null;
 }
-
-const getSelectedPartName = computed(() => (slug) =>  {
-
-  const part = props.selectedParts[slug];
-  console.log(part)
-  return part ? part.name : null;
-
-})
 
 // Events
 const handleClick = (e) => {
@@ -119,8 +117,9 @@ const handleClick = (e) => {
 
 watch(
   () => props.selectedParts,
-  (newVal, oldVal) => {
-    fetchSelectedParts();
+  () => {
+    // fetchSelectedParts();
+    // console.log("🧩 selectedParts content:", JSON.parse(JSON.stringify(newVal)));
   },
   {
     deep: true,
@@ -151,13 +150,8 @@ watch(
             <h4 class="flex-auto truncate text-xl font-semibold mb-2">
               {{ pcComponent.name }}
             </h4>
-            <p
-              v-if="getSelectedPartName(pcComponent.slug)"
-              class="text-sm">
-              {{ getSelectedPartName(pcComponent.slug) }}
-            </p>
-            <p v-else class="text-sm">
-              Select Item
+            <p class="text-sm">
+              {{ getSelectedPartName(pcComponent.slug) || 'Select Item' }}
             </p>
           </div>
         </div>

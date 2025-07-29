@@ -4,6 +4,7 @@
   // props
   const props = defineProps({
     selectedItem: Object,
+    selectedParts: Object
   });
 
   // emits
@@ -74,17 +75,27 @@
         <li
           v-for="(part, index) in currentParts"
           :key="index"
-          class="bg-gray-700/80 rounded text-white">
-            <div class="p-6 space-y-6">
+          class="bg-gray-700/80 rounded text-white hover:ring-2 hover:ring-indigo-300">
+            <!-- <div class="hidden group-hover:block absolute">
+              <button
+              class="text-red-300"
+              type="button">
+                Clear
+              </button>
+            </div> -->
+            <div class="p-8 space-y-6">
               <div>
                 <p>{{ part.name }}</p>
               </div>
               <div class="w-full flex items-center justify-between">
-                <button class="border border-indigo-400 cursor-pointer hover:bg-indigo-400 px-3 py-1.5 text-xs rounded" type="button">Info</button>
+                <button class="border border-indigo-400 cursor-pointer hover:bg-indigo-400 px-3 py-1.5 text-sm rounded" type="button">Info</button>
                 <button
-                  class="border border-indigo-400 cursor-pointer hover:bg-indigo-400 px-3 py-1.5 text-xs rounded"
+                  class="border border-indigo-400 cursor-pointer hover:bg-indigo-400 px-3 py-1.5 text-sm rounded"
+                  :class="props.selectedParts?.[props.selectedItem?.slug]?.id === part.id ? 'bg-indigo-400' : ''"
                   type="button"
-                  @click="handleSelectedParts(part.id, part.name, part.img)">Select</button>
+                  @click="handleSelectedParts(part.id, part.name, part.img)">
+                    {{ props.selectedParts?.[props.selectedItem?.slug]?.id === part.id ? 'Selected' : 'Select' }}
+                </button>
               </div>
             </div>
         </li>

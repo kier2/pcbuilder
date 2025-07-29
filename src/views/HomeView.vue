@@ -10,13 +10,15 @@ const selectedComponent = (pcComponent) => {
   return pcComponentsData.value.slug = pcComponent.selectedItem;
 };
 
-const selectedParts = (part) => {
+const updateSelectedParts = (part) => {
   // console.log(part.selectedPartId)
-   selectedPartsData.value.id = part.selectedPartId
-   selectedPartsData.value.component = part.selectedComponent
-   selectedPartsData.value.name = part.selectedComponentsPart
-   selectedPartsData.value.img = part.selectedComponentsPartImg
-   return selectedPartsData
+  selectedPartsData.value[part.selectedComponent] = {
+    id: part.selectedPartId,
+    name: part.selectedComponentsPart,
+    img: part.selectedComponentsPartImg,
+  }
+
+
 }
 
 </script>
@@ -30,7 +32,8 @@ const selectedParts = (part) => {
 
       <ComputerPartsSection
         :selected-item="pcComponentsData"
-        @selected-parts="selectedParts"
+        :selected-parts="selectedPartsData"
+        @selected-parts="updateSelectedParts"
        />
     </div>
   </main>
