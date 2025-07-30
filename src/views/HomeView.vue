@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import ComputerPartsSection from "@/components/ComputerParts.vue";
-import SelectedComponents from "@/components/PcComponents.vue";
+import PcComponents from "@/components/PcComponents.vue";
 
 const pcComponentsData = ref({});
 const selectedPartsData = ref({});
@@ -17,8 +17,12 @@ const updateSelectedParts = (part) => {
     name: part.selectedComponentsPart,
     img: part.selectedComponentsPartImg,
   }
-
-
+}
+const handleRemoveComponent = (slug) => {
+  selectedPartsData.value = {
+    ...selectedPartsData.value,
+    [slug]: null,
+  }
 }
 
 </script>
@@ -26,8 +30,9 @@ const updateSelectedParts = (part) => {
 <template>
   <main class="w-screen h-screen">
     <div class="flex w-full h-full p-6">
-      <SelectedComponents
+      <PcComponents
         @update-component-selection="selectedComponent"
+        @remove-component="handleRemoveComponent"
         :selected-parts="selectedPartsData" />
 
       <ComputerPartsSection

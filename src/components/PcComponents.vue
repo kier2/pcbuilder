@@ -9,6 +9,7 @@ import {
   Gpu,
   PcCase,
   HardDrive,
+  Trash2
 } from "lucide-vue-next";
 
 const pcComponents = ref([
@@ -89,7 +90,7 @@ const props = defineProps({
 })
 
 // emits
-const emit = defineEmits(["updateComponentSelection"]);
+const emit = defineEmits(["updateComponentSelection", "removeComponent"]);
 
 // Database Actions
 // const fetchSelectedParts = () => {
@@ -115,11 +116,15 @@ const handleClick = (e) => {
   }
 };
 
+const handleRemoveComponent = (slugToRemove) => {
+  emit("removeComponent", slugToRemove);
+}
+
 watch(
   () => props.selectedParts,
   () => {
     // fetchSelectedParts();
-    // console.log("🧩 selectedParts content:", JSON.parse(JSON.stringify(newVal)));
+    // console.log("selectedParts content:", JSON.parse(JSON.stringify(newVal)));
   },
   {
     deep: true,
@@ -139,8 +144,19 @@ watch(
         v-for="(pcComponent, index) in pcComponents"
         :key="index"
         @click="handleClick"
-        class="bg-gray-900/80 shadow-sm rounded transition cursor-pointer hover:bg-gray-900/90 border border-gray-900/80 hover:border-gray-50"
+        class="bg-gray-900/80 shadow-sm rounded transition cursor-pointer hover:bg-gray-900/90 border border-gray-900/80 hover:border-gray-50 group
+        relative"
       >
+        <div
+        v-if="getSelectedPartName(pcComponent.slug)"
+        class="absolute right-2 top-2">
+          <button
+            @click.stop="handleRemoveComponent(pcComponent.slug)"
+            class="text-red-300 cursor-pointer"
+            type="button">
+              <Trash2 class="size-4" />
+          </button>
+        </div>
         <div
           class="flex items-center gap-6 px-4 py-8 sm:px-6 component"
           :data-component="pcComponent.slug"
