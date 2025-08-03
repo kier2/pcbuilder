@@ -138,7 +138,7 @@ watch(
 
 </script>
 <template>
-  <div class="overflow-hidden shadow sm:rounded-md w-full">
+  <div class="h-screen overflow-y-auto overflow-x-hidden shadow sm:rounded-md w-full md:h-screen md:sticky md:top-0 custom-scrollbar">
     <ul role="list" class="text-gray-300 flex flex-col space-y-3">
       <li
         v-for="(pcComponent, index) in pcComponents"

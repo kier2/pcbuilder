@@ -8,7 +8,72 @@
       "usdPrice": 350,
       "phpPrice": 20000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/4198724634995938274_0",
-      "specs": []
+      "specs": [
+        {
+          "label": "Brand",
+          "value": "ASUS"
+        },
+        {
+          "label": "Model",
+          "value": "ROG Strix Z790-E Gaming WiFi"
+        },
+        {
+          "label": "Form Factor",
+          "value": "ATX"
+        },
+        {
+          "label": "CPU Support",
+          "value": "13th & 12th Gen Intel Core Processors"
+        },
+        {
+          "label": "Socket",
+          "value": "LGA1700"
+        },
+        {
+          "label": "Chipset",
+          "value": "Z790"
+        },
+        {
+          "label": "Memory Type",
+          "value": "DDR5"
+        },
+        {
+          "label": "Max Memory Capacity",
+          "value": "128 GB"
+        },
+        {
+          "label": "Memory Speed",
+          "value": "7800+(OC) MHz"
+        },
+        {
+          "label": "PCIe Slots",
+          "value": "1x PCIe 5.0 x16, 2x PCIe 4.0 x16"
+        },
+        {
+          "label": "M.2 Slots",
+          "value": "4"
+        },
+        {
+          "label": "Rear USB Ports",
+          "value": "1x USB 3.2 Gen 2x2 Type-C, 1x USB 3.2 Gen 2 Type-C, 6x USB 3.2 Gen 2 Type-A"
+        },
+        {
+          "label": "Audio",
+          "value": "ROG SupremeFX 7.1 Surround Sound High Definition Audio CODEC"
+        },
+        {
+          "label": "Ethernet",
+          "value": "Intel 2.5Gb Ethernet"
+        },
+        {
+          "label": "WiFi",
+          "value": "Wi-Fi 6E (802.11ax)"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "Bluetooth 5.3"
+        }
+      ]
     },
     {
       "id": "mb2",
