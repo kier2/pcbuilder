@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import ComputerPartsSection from "@/components/ComputerParts.vue";
 import PcComponents from "@/components/PcComponents.vue";
+import BottomContent from "@/components/BottomContent.vue";
 
 const pcComponentsData = ref({});
 const selectedPartsData = ref({});
@@ -28,7 +29,7 @@ const handleRemoveComponent = (slug) => {
 </script>
 
 <template>
-  <main class="w-screen h-screen">
+  <main class="relative w-screen h-screen">
     <div class="flex w-full h-full p-6">
       <PcComponents
         @update-component-selection="selectedComponent"
@@ -41,5 +42,6 @@ const handleRemoveComponent = (slug) => {
         @selected-parts="updateSelectedParts"
        />
     </div>
+    <BottomContent />
   </main>
 </template>

@@ -139,12 +139,15 @@ watch(
 </script>
 <template>
   <div class="h-screen overflow-y-auto overflow-x-hidden shadow sm:rounded-md w-full md:h-screen md:sticky md:top-0 custom-scrollbar">
+
+    <h2 class="text-white capitalize text-2xl font-semibold mb-5">Select Components</h2>
+
     <ul role="list" class="text-gray-300 flex flex-col space-y-3">
       <li
         v-for="(pcComponent, index) in pcComponents"
         :key="index"
         @click="handleClick"
-        class="bg-gray-900/80 shadow-sm rounded transition cursor-pointer hover:bg-gray-900/90 border border-gray-900/80 hover:border-gray-50 group
+        class="bg-gray-900/80 shadow-sm rgounded transition cursor-pointer hover:bg-gray-900/90 border border-gray-900/80 hover:border-gray-50 group
         relative"
       >
         <div
@@ -161,12 +164,12 @@ watch(
           class="flex items-center gap-6 px-4 py-8 sm:px-6 component"
           :data-component="pcComponent.slug"
         >
-          <component :is="pcComponent.icon"></component>
+          <component :is="pcComponent.icon" class="text-gray-400"></component>
           <div>
-            <h4 class="flex-auto truncate text-xl font-semibold mb-2">
+            <h4 class="flex-auto truncate text-xl font-semibold mb-2 text-gray-400">
               {{ pcComponent.name }}
             </h4>
-            <p class="text-sm">
+            <p class="text-sm text-gray-200">
               {{ getSelectedPartName(pcComponent.slug) || 'Select Item' }}
             </p>
           </div>

@@ -1,6 +1,7 @@
 <script setup>
   import { ref, onMounted, computed } from "vue";
   import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+  import { PhilippinePeso, DollarSign } from 'lucide-vue-next';
 
   // props
   const props = defineProps({
@@ -17,6 +18,7 @@
   const error = ref(null);
   const openPopup = ref(false)
   const selectedInfoParts = ref({})
+  const toggleCurrency = ref(false)
 
   // Database Actions
   const fetchData = async () => {
@@ -72,11 +74,41 @@
 <template>
   <div class="h-screen overflow-y-auto overflow-x-hidden shadow sm:rounded-md w-full  md:h-screen md:sticky md:top-0 custom-scrollbar">
     <div class="pl-10 pr-3 py-2">
-      <h2 class="text-white uppercase text-2xl font-semibold mb-5">
-        <span v-if="props.selectedItem">
-        {{ props.selectedItem.slug }}
-      </span>
-      </h2>
+      <div class="flex items-center justify-between mb-5">
+        <div>
+          <h2 class="text-white capitalize text-2xl font-semibold">
+            <span v-if="props.selectedItem">
+              {{ props.selectedItem.slug }}
+            </span>
+          </h2>
+        </div>
+        <div
+        v-if="currentParts.length > 0"
+        class="flex gap-1.5 items-center">
+          <div class="group relative inline-flex w-11 shrink-0 rounded-full bg-gray-300 p-0.5 inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-checked:bg-indigo-600 has-focus-visible:outline-2">
+            <span class="relative size-5 rounded-full bg-gray-100 shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-5">
+              <span class="absolute inset-0 flex size-full items-center justify-center opacity-100 transition-opacity duration-200 ease-in group-has-checked:opacity-0 group-has-checked:duration-100 group-has-checked:ease-out" aria-hidden="true">
+                <svg class="size-3 text-gray-400" fill="none" viewBox="0 0 12 12">
+                  <path d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="absolute inset-0 flex size-full items-center justify-center opacity-0 transition-opacity duration-100 ease-out group-has-checked:opacity-100 group-has-checked:duration-200 group-has-checked:ease-in" aria-hidden="true">
+                <svg class="size-3 text-indigo-600" fill="currentColor" viewBox="0 0 12 12">
+                  <path d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z" />
+                </svg>
+              </span>
+            </span>
+            <input
+            type="checkbox"
+            class="absolute inset-0 appearance-none focus:outline-hidden cursor-pointer" aria-label="Use setting" name="setting" id="toggleCurr"
+            v-model="toggleCurrency" />
+          </div>
+          <label
+          for="toggleCurr"
+          :class="toggleCurrency ? 'text-green-500' : 'text-gray-500'"
+          >USD</label>
+        </div>
+      </div>
 
       <p v-if="loading">Loading parts...</p>
       <p v-else-if="error" style="color: red;">{{ error }}</p>
@@ -87,7 +119,7 @@
         <li
           v-for="(part, index) in currentParts"
           :key="index"
-          class="bg-gray-700/80 rounded text-white hover:ring-2 hover:ring-indigo-300">
+          class="bg-gray-900/80 rounded text-white hover:ring-2 hover:ring-indigo-300">
             <!-- <div class="hidden group-hover:block absolute">
               <button
               class="text-red-300"
@@ -96,8 +128,23 @@
               </button>
             </div> -->
             <div class="p-8 space-y-6">
-              <div>
-                <p>{{ part.name }}</p>
+              <div class="flex">
+                <div class="flex-1">
+                  <p>{{ part.name }}</p>
+                </div>
+                <div>
+                  <h4 class="flex items-center gap-1">
+                    <span v-if="toggleCurrency">
+                      <DollarSign class="text-gray-400 size-4" />
+                    </span>
+                    <span v-else>
+                      <PhilippinePeso class="text-gray-400 size-4" />
+                    </span>
+                    <span class="text-lg font-semibold">
+                      {{ toggleCurrency ? part.usdPrice : part.phpPrice }}
+                    </span>
+                  </h4>
+                </div>
               </div>
               <div class="w-full flex items-center justify-between">
                 <button
