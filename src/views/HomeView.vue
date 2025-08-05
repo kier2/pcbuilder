@@ -29,8 +29,8 @@ const handleRemoveComponent = (slug) => {
 </script>
 
 <template>
-  <main class="relative w-screen h-screen">
-    <div class="flex w-full h-full p-6">
+  <main class="relative md:w-screen md:h-screen">
+    <div class="flex w-full h-full p-6 md:flex-row flex-col gap-y-12">
       <PcComponents
         @update-component-selection="selectedComponent"
         @remove-component="handleRemoveComponent"

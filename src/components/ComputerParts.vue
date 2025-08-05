@@ -73,7 +73,7 @@
 
 <template>
   <div class="h-screen overflow-y-auto overflow-x-hidden shadow sm:rounded-md w-full  md:h-screen md:sticky md:top-0 custom-scrollbar">
-    <div class="pl-10 pr-3 py-2">
+    <div class="md:pl-10 pr-3 py-2">
       <div class="flex items-center justify-between mb-5">
         <div>
           <h2 class="text-white capitalize text-2xl font-semibold">
@@ -128,12 +128,12 @@
               </button>
             </div> -->
             <div class="p-8 space-y-6">
-              <div class="flex">
+              <div class="flex md:flex-row flex-col md:gap-3 gap-y-6">
                 <div class="flex-1">
                   <p>{{ part.name }}</p>
                 </div>
                 <div>
-                  <h4 class="flex items-center gap-1">
+                  <h4 class="flex items-center gap-1 justify-end">
                     <span v-if="toggleCurrency">
                       <DollarSign class="text-gray-400 size-4" />
                     </span>
