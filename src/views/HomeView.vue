@@ -6,6 +6,7 @@ import BottomContent from "@/components/BottomContent.vue";
 
 const pcComponentsData = ref({});
 const selectedPartsData = ref({});
+const selectedPartsPriceData = ref({})
 
 const selectedComponent = (pcComponent) => {
   return pcComponentsData.value.slug = pcComponent.selectedItem;
@@ -19,6 +20,15 @@ const updateSelectedParts = (part) => {
     img: part.selectedComponentsPartImg,
   }
 }
+
+const getPartsPriceData = (data) => {
+  selectedPartsPriceData.value[data.component] = {
+    priceUsd: data.priceUsd,
+    pricePhp: data.pricePhp
+  }
+  return selectedPartsPriceData;
+}
+
 const handleRemoveComponent = (slug) => {
   selectedPartsData.value = {
     ...selectedPartsData.value,
@@ -40,8 +50,11 @@ const handleRemoveComponent = (slug) => {
         :selected-item="pcComponentsData"
         :selected-parts="selectedPartsData"
         @selected-parts="updateSelectedParts"
+        @price-of-selected="getPartsPriceData"
        />
     </div>
-    <BottomContent />
+    <BottomContent
+      :selected-price="selectedPartsPriceData"
+    />
   </main>
 </template>

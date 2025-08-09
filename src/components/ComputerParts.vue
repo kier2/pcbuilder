@@ -10,7 +10,7 @@
   });
 
   // emits
-  const  emit = defineEmits(['selectedParts']);
+  const  emit = defineEmits(['selectedParts', 'priceOfSelected']);
 
   // variables
   const allComponentData = ref({});
@@ -30,6 +30,7 @@
 
       const data = await res.json();
       allComponentData.value = data
+      // console.log(data)
     } catch (err) {
       error.value = 'Failed to load data.';
       console.error("Could not fetch data", err);
@@ -39,12 +40,18 @@
   }
 
   // Events
-  const handleSelectedParts = (id, name, img ) => {
+  const handleSelectedParts = (id, name, img, priceUsd, pricePhp ) => {
     emit('selectedParts', {
       selectedPartId: id,
       selectedComponent: props.selectedItem.slug,
       selectedComponentsPart: name,
       selectedComponentsPartImg: img,
+    })
+
+    emit('priceOfSelected', {
+      component: props.selectedItem.slug,
+      priceUsd: priceUsd,
+      pricePhp: pricePhp
     })
   }
 
@@ -157,7 +164,7 @@
                   class="border border-indigo-400 cursor-pointer hover:bg-indigo-400 px-3 py-1.5 text-sm rounded"
                   :class="props.selectedParts?.[props.selectedItem?.slug]?.id === part.id ? 'bg-indigo-400' : ''"
                   type="button"
-                  @click="handleSelectedParts(part.id, part.name, part.img)">
+                  @click="handleSelectedParts(part.id, part.name, part.img, part.usdPrice, part.phpPrice)">
                     {{ props.selectedParts?.[props.selectedItem?.slug]?.id === part.id ? 'Selected' : 'Select' }}
                 </button>
               </div>
