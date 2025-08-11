@@ -6,12 +6,14 @@ import BottomContent from "@/components/BottomContent.vue";
 
 const pcComponentsData = ref({});
 const selectedPartsData = ref({});
-const selectedPartsPriceData = ref({})
+const selectedPartsPriceData = ref({});
+const selectedCurrencyData = ref();
 
 const selectedComponent = (pcComponent) => {
   return pcComponentsData.value.slug = pcComponent.selectedItem;
 };
 
+// ComputerParts Get Emits
 const updateSelectedParts = (part) => {
   // console.log(part.selectedPartId)
   selectedPartsData.value[part.selectedComponent] = {
@@ -27,6 +29,11 @@ const getPartsPriceData = (data) => {
     pricePhp: data.pricePhp
   }
   return selectedPartsPriceData;
+}
+
+const getSelectedCurrency = (data) => {
+  // console.log(data)
+  selectedCurrencyData.value = data
 }
 
 const handleRemoveComponent = (slug) => {
@@ -51,10 +58,12 @@ const handleRemoveComponent = (slug) => {
         :selected-parts="selectedPartsData"
         @selected-parts="updateSelectedParts"
         @price-of-selected="getPartsPriceData"
+        @is-curr-usd="getSelectedCurrency"
        />
     </div>
     <BottomContent
       :selected-price="selectedPartsPriceData"
+      :is-currency-usd="selectedCurrencyData"
     />
   </main>
 </template>

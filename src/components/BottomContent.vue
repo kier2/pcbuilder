@@ -1,13 +1,15 @@
 <script setup>
   import { watch, computed } from 'vue';
-  import { ArrowUpFromLine, FileText } from 'lucide-vue-next';
+  import { ArrowUpFromLine, FileText, PhilippinePeso, DollarSign } from 'lucide-vue-next';
+
 
    // props
   const props = defineProps({
     selectedPrice: {
       type: Object,
       default: () => ({})
-    }
+    },
+    isCurrencyUsd: Boolean
   });
 
 
@@ -16,24 +18,24 @@
     let totalPhp = 0
 
     for (const componentType in props.selectedPrice) {
-    const parts = props.selectedPrice[componentType];
+    const part = props.selectedPrice[componentType];
 
-      // Iterate over the array of parts for each component type
-      if (Array.isArray(parts)) {
-        parts.forEach(part => {
-          totalUsd += part.priceUsd || 0;
-          totalPhp += part.pricePhp || 0;
-        });
+      if (part && typeof part === 'object') {
+        totalUsd += part.priceUsd || 0;
+        totalPhp += part.pricePhp || 0;
       }
     }
-
-
 
     return {
       totalUsd: totalUsd,
       totalPhp: totalPhp
     }
   })
+
+  const formatNumber = (value) => {
+    if (!value) return 0;
+    return new Intl.NumberFormat('en-US').format(value);
+  };
 
   watch(
   () => props.selectedPrice,
@@ -56,7 +58,21 @@
       </div>
       <div class="flex-1 flex justify-between items-center">
         <div class="">
-          <h2 class="text-xl font-semibold">Subtotal: {{ getSubtotal.totalUsd }}</h2>
+          <div class="text-xl font-semibold flex">
+            <span class="mr-3 text-gray-200"> Subtotal: </span>
+            <div
+            v-if="isCurrencyUsd"
+            class="flex items-center gap-2">
+              <DollarSign class="text-gray-400 size-4" />
+              <span>{{ formatNumber(getSubtotal.totalUsd) }} </span>
+            </div>
+            <div
+            v-else
+            class="flex items-center gap-2">
+              <PhilippinePeso class="text-gray-400 size-4" />
+              <span>{{ formatNumber(getSubtotal.totalPhp) }} </span>
+            </div>
+          </div>
         </div>
         <div class="flex justify-between items-center gap-6">
           <button

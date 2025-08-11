@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted, computed } from "vue";
+  import { ref, onMounted, computed, watch } from "vue";
   import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
   import { PhilippinePeso, DollarSign } from 'lucide-vue-next';
 
@@ -10,7 +10,7 @@
   });
 
   // emits
-  const  emit = defineEmits(['selectedParts', 'priceOfSelected']);
+  const  emit = defineEmits(['selectedParts', 'priceOfSelected', 'isCurrUsd']);
 
   // variables
   const allComponentData = ref({});
@@ -18,7 +18,7 @@
   const error = ref(null);
   const openPopup = ref(false)
   const selectedInfoParts = ref({})
-  const toggleCurrency = ref(false)
+  const isUsd = ref(false)
 
   // Database Actions
   const fetchData = async () => {
@@ -76,6 +76,13 @@
     return selectedInfoParts
   }
 
+  watch(isUsd, (newVal) => {
+      emit('isCurrUsd', newVal)
+    },{
+      immediate: true
+    }
+  );
+
 </script>
 
 <template>
@@ -108,11 +115,11 @@
             <input
             type="checkbox"
             class="absolute inset-0 appearance-none focus:outline-hidden cursor-pointer" aria-label="Use setting" name="setting" id="toggleCurr"
-            v-model="toggleCurrency" />
+            v-model="isUsd" />
           </div>
           <label
           for="toggleCurr"
-          :class="toggleCurrency ? 'text-green-500' : 'text-gray-500'"
+          :class="isUsd ? 'text-green-500' : 'text-gray-500'"
           >USD</label>
         </div>
       </div>
@@ -141,14 +148,14 @@
                 </div>
                 <div>
                   <h4 class="flex items-center gap-1 justify-end">
-                    <span v-if="toggleCurrency">
+                    <span v-if="isUsd">
                       <DollarSign class="text-gray-400 size-4" />
                     </span>
                     <span v-else>
                       <PhilippinePeso class="text-gray-400 size-4" />
                     </span>
                     <span class="text-lg font-semibold">
-                      {{ toggleCurrency ? part.usdPrice : part.phpPrice }}
+                      {{ isUsd ? part.usdPrice : part.phpPrice }}
                     </span>
                   </h4>
                 </div>
