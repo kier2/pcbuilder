@@ -85,8 +85,11 @@ const selectedComponent = ref();
 
 // props
 const props = defineProps({
-  selectedParts: Object,
-  default: () => ({})
+  selectedParts: {
+    type: Object,
+    default: () => ({})
+  },
+  isCurrencyUsd: Boolean
 })
 
 // emits
@@ -101,7 +104,6 @@ const emit = defineEmits(["updateComponentSelection", "removeComponent"]);
 
 const getSelectedPartName = (slug) =>  {
   const part = props.selectedParts?.[slug];
-  // console.log(part)
   return part?.name ?? null;
 }
 
@@ -117,18 +119,21 @@ const handleClick = (e) => {
 };
 
 const handleRemoveComponent = (slugToRemove) => {
-  emit("removeComponent", slugToRemove);
+  // Get the part to be removed
+  const partToRemove = props.selectedParts?.[slugToRemove];
+
+  if (partToRemove) {
+    const priceToRemove = props.isCurrencyUsd ? partToRemove.priceUsd : partToRemove.pricePhp;
+    emit("removeComponent", { slugToRemove, priceToRemove });
+  }
 }
 
 watch(
-  () => props.selectedParts,
+  [() => props.selectedParts, () => props.isCurrencyUsd],
   () => {
-    // fetchSelectedParts();
-    // console.log("selectedParts content:", JSON.parse(JSON.stringify(newVal)));
   },
   {
     deep: true,
-    immediate: true
   }
 );
 

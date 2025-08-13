@@ -46,6 +46,8 @@
       selectedComponent: props.selectedItem.slug,
       selectedComponentsPart: name,
       selectedComponentsPartImg: img,
+      priceUsd: priceUsd,
+      pricePhp: pricePhp
     })
 
     emit('priceOfSelected', {

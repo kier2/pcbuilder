@@ -8,6 +8,7 @@ const pcComponentsData = ref({});
 const selectedPartsData = ref({});
 const selectedPartsPriceData = ref({});
 const selectedCurrencyData = ref();
+const subtotal = ref(0);
 
 const selectedComponent = (pcComponent) => {
   return pcComponentsData.value.slug = pcComponent.selectedItem;
@@ -20,6 +21,8 @@ const updateSelectedParts = (part) => {
     id: part.selectedPartId,
     name: part.selectedComponentsPart,
     img: part.selectedComponentsPartImg,
+    priceUsd: part.priceUsd,
+    pricePhp: part.pricePhp
   }
 }
 
@@ -36,11 +39,16 @@ const getSelectedCurrency = (data) => {
   selectedCurrencyData.value = data
 }
 
-const handleRemoveComponent = (slug) => {
-  selectedPartsData.value = {
-    ...selectedPartsData.value,
-    [slug]: null,
-  }
+const handleRemoveComponent = ({ slugToRemove, priceToRemove }) => {
+  const newSelectedParts = { ...selectedPartsData.value };
+  delete newSelectedParts[slugToRemove];
+  selectedPartsData.value = newSelectedParts;
+
+  const newSelectedPrices = { ...selectedPartsPriceData.value };
+  delete newSelectedPrices[slugToRemove];
+  selectedPartsPriceData.value = newSelectedPrices;
+
+  subtotal.value -= priceToRemove;
 }
 
 </script>
@@ -51,7 +59,8 @@ const handleRemoveComponent = (slug) => {
       <PcComponents
         @update-component-selection="selectedComponent"
         @remove-component="handleRemoveComponent"
-        :selected-parts="selectedPartsData" />
+        :selected-parts="selectedPartsData"
+        :is-currency-usd="selectedCurrencyData" />
 
       <ComputerPartsSection
         :selected-item="pcComponentsData"
@@ -64,6 +73,7 @@ const handleRemoveComponent = (slug) => {
     <BottomContent
       :selected-price="selectedPartsPriceData"
       :is-currency-usd="selectedCurrencyData"
+      :subtotal="subtotal"
     />
   </main>
 </template>

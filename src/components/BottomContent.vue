@@ -9,6 +9,7 @@
       type: Object,
       default: () => ({})
     },
+    subtotal: Number,
     isCurrencyUsd: Boolean
   });
 
@@ -40,7 +41,6 @@
   watch(
   () => props.selectedPrice,
   (newVal) => {
-
     console.log("selectedParts content:", JSON.parse(JSON.stringify(newVal)));
   },
   {
