@@ -14,68 +14,49 @@ import {
 
 const pcComponents = ref([
   {
-    name: "Motherboard",
-    slug: "motherboards",
-    icon: Microchip,
-    selectedItem: "Select Item",
-    price: "",
-  },
-  {
     name: "Processor",
     slug: "cpu",
     icon: Cpu,
-    selectedItem:
-      "AMD Ryzen 5 5600 Socket AM4 3.5GHz Processor with Wraith Stealth Cooler MPK",
-    price: "4,895.00",
+  },
+  {
+    name: "Motherboard",
+    slug: "motherboards",
+    icon: Microchip,
   },
   {
     name: "CPU Cooler",
     slug: "fan",
     icon: Fan,
-    selectedItem: "Select Item",
-    price: "",
   },
   {
     name: "Memory",
     slug: "ram",
     icon: MemoryStick,
-    selectedItem: "Select Item",
-    price: "",
   },
   {
     name: "Storage",
     slug: "storage",
     icon: HardDrive,
-    selectedItem: "Select Item",
-    price: "",
   },
   {
     name: "Graphics Card",
     slug: "gpu",
     icon: Gpu,
-    selectedItem: "Select Item",
-    price: "",
   },
   {
     name: "Power Supply",
     slug: "psu",
     icon: Gpu,
-    selectedItem: "Select Item",
-    price: "",
   },
   {
     name: "Case",
     slug: "case",
     icon: PcCase,
-    selectedItem: "Select Item",
-    price: "",
   },
   {
     name: "Monitor",
     slug: "monitor",
     icon: Monitor,
-    selectedItem: "Select Item",
-    price: "",
   },
 ]);
 
