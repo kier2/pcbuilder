@@ -20,6 +20,38 @@
   const selectedInfoParts = ref({})
   const isUsd = ref(false)
 
+  const selectedCpu = computed(() => props.selectedParts?.cpu);
+  const selectedMotherboard = computed(() => props.selectedParts?.motherboard);
+
+  const currentParts = computed(() => {
+    if (loading.value || error.value || !props.selectedItem?.slug) {
+      return [];
+    }
+
+    const partsList = allComponentData.value[props.selectedItem.slug] || [];
+
+    switch (props.selectedItem.slug) {
+      case 'motherboard':
+        if (selectedCpu.value?.socket) {
+          return partsList.filter(mb => mb.socket === selectedCpu.value.socket);
+        }
+        break;
+
+      case 'cpu':
+        if (selectedMotherboard.value?.socket) {
+          return partsList.filter(cpu => cpu.socket === selectedMotherboard.value.socket);
+        }
+        break;
+
+      case 'fan':
+        if (selectedCpu.value?.socket) {
+          return partsList.filter(fan => fan.compatibleCpuSockets?.includes(selectedCpu.value.socket));
+        }
+        break;
+    }
+
+    return partsList;
+  });
   // Database Actions
   const fetchData = async () => {
     try{
@@ -41,34 +73,29 @@
 
   // Events
   const handleSelectedParts = (id, name, img, priceUsd, pricePhp ) => {
+    const selectedPart = allComponentData.value[props.selectedItem.slug]?.find(p => p.id === id);
+
     emit('selectedParts', {
       selectedPartId: id,
       selectedComponent: props.selectedItem.slug,
       selectedComponentsPart: name,
       selectedComponentsPartImg: img,
-      priceUsd: priceUsd,
-      pricePhp: pricePhp
-    })
+      priceUsd,
+      pricePhp,
+      socket: selectedPart?.socket,
+      compatibleCpuSockets: selectedPart?.compatibleCpuSockets || []
+    });
 
     emit('priceOfSelected', {
       component: props.selectedItem.slug,
-      priceUsd: priceUsd,
-      pricePhp: pricePhp
-    })
+      priceUsd,
+      pricePhp
+    });
   }
 
   onMounted(() => {
     fetchData();
   })
-
-  const currentParts = computed(() => {
-    if(loading.value || error.value || !props.selectedItem || !props.selectedItem.slug){
-      return [];
-    }
-    const parts = allComponentData.value[props.selectedItem.slug];
-    // console.log(parts)
-    return parts || [];
-  });
 
   const getInfoParts = (img, name, specs) => {
     openPopup.value = true
@@ -80,6 +107,7 @@
 
   watch(isUsd, (newVal) => {
       emit('isCurrUsd', newVal)
+      // console.log(props.selectedItem)
     },{
       immediate: true
     }
@@ -88,7 +116,7 @@
 </script>
 
 <template>
-  <div class="h-screen overflow-y-auto overflow-x-hidden shadow sm:rounded-md w-full  md:h-screen md:sticky md:top-0 custom-scrollbar">
+  <div class="h-screen overflow-y-auto overflow-x-hidden shadow sm:rounded-md w-full  md:h-[75%] md:sticky md:top-0 custom-scrollbar">
     <div class="md:pl-10 pr-3 py-2">
       <div class="flex items-center justify-between mb-5">
         <div>
@@ -136,13 +164,6 @@
           v-for="(part, index) in currentParts"
           :key="index"
           class="bg-gray-900/80 rounded text-white hover:ring-2 hover:ring-indigo-300">
-            <!-- <div class="hidden group-hover:block absolute">
-              <button
-              class="text-red-300"
-              type="button">
-                Clear
-              </button>
-            </div> -->
             <div class="p-8 space-y-6">
               <div class="flex md:flex-row flex-col md:gap-3 gap-y-6">
                 <div class="flex-1">
@@ -185,6 +206,9 @@
     <div v-if="currentParts.length == 0"
     class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h2 class="text-white text-center">Select Component First</h2>
+    </div>
+    <div v-if="currentParts.length === 0 && props.selectedItem.slug === 'motherboard' && selectedCpu">
+      <h2 class="text-white text-center">No compatible motherboards found for this CPU</h2>
     </div>
 
   </div>

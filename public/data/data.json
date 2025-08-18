@@ -1,5 +1,97 @@
 {
-  "motherboards": [
+  "cpu": [
+    {
+      "id": "cpu1",
+      "name": "Intel Core i9-14900K",
+      "socket": "LGA1700",
+      "usdPrice": 550,
+      "phpPrice": 32000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/3820253406214349141_0",
+      "specs": []
+    },
+    {
+      "id": "cpu2",
+      "name": "Intel Core i7-14700K",
+      "socket": "LGA1700",
+      "usdPrice": 400,
+      "phpPrice": 23500,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/12022421395358055451_0",
+      "specs": []
+    },
+    {
+      "id": "cpu3",
+      "name": "Intel Core i5-13600K",
+      "socket": "LGA1700",
+      "usdPrice": 280,
+      "phpPrice": 16500,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/13352758156156711974_0",
+      "specs": []
+    },
+    {
+      "id": "cpu4",
+      "name": "Intel Core i3-12100F",
+      "socket": "LGA1700",
+      "usdPrice": 100,
+      "phpPrice": 5800,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/1498064516361099195_0",
+      "specs": []
+    },
+    {
+      "id": "cpu5",
+      "name": "AMD Ryzen 9 7950X",
+      "socket": "AM5",
+      "usdPrice": 520,
+      "phpPrice": 30500,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/4507005470766468792_0",
+      "specs": []
+    },
+    {
+      "id": "cpu6",
+      "name": "AMD Ryzen 7 7800X3D",
+      "socket": "AM5",
+      "usdPrice": 380,
+      "phpPrice": 22500,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/459700587788448877_0",
+      "specs": []
+    },
+    {
+      "id": "cpu7",
+      "name": "AMD Ryzen 5 7600X",
+      "socket": "AM5",
+      "usdPrice": 200,
+      "phpPrice": 11500,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/18251399778216174825_0",
+      "specs": []
+    },
+    {
+      "id": "cpu8",
+      "name": "AMD Ryzen 7 5800X3D",
+      "socket": "AM4",
+      "usdPrice": 290,
+      "phpPrice": 17000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/10976535928841022204_0",
+      "specs": []
+    },
+    {
+      "id": "cpu9",
+      "name": "AMD Ryzen 5 5600X",
+      "socket": "AM4",
+      "usdPrice": 150,
+      "phpPrice": 8800,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/12022421395358055451_0",
+      "specs": []
+    },
+    {
+      "id": "cpu10",
+      "name": "AMD Ryzen 3 3100",
+      "socket": "AM4",
+      "usdPrice": 80,
+      "phpPrice": 4700,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/12836262453673322476_0",
+      "specs": []
+    }
+  ],
+  "motherboard": [
     {
       "id": "mb1",
       "name": "ASUS ROG Strix Z790-E Gaming WiFi",
@@ -8,81 +100,6 @@
       "usdPrice": 350,
       "phpPrice": 20000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/4198724634995938274_0",
-      "specs": [
-        {
-          "label": "Brand",
-          "value": "ASUS"
-        },
-        {
-          "label": "Model",
-          "value": "ROG Strix Z790-E Gaming WiFi"
-        },
-        {
-          "label": "Form Factor",
-          "value": "ATX"
-        },
-        {
-          "label": "CPU Support",
-          "value": "13th & 12th Gen Intel Core Processors"
-        },
-        {
-          "label": "Socket",
-          "value": "LGA1700"
-        },
-        {
-          "label": "Chipset",
-          "value": "Z790"
-        },
-        {
-          "label": "Memory Type",
-          "value": "DDR5"
-        },
-        {
-          "label": "Max Memory Capacity",
-          "value": "128 GB"
-        },
-        {
-          "label": "Memory Speed",
-          "value": "7800+(OC) MHz"
-        },
-        {
-          "label": "PCIe Slots",
-          "value": "1x PCIe 5.0 x16, 2x PCIe 4.0 x16"
-        },
-        {
-          "label": "M.2 Slots",
-          "value": "4"
-        },
-        {
-          "label": "Rear USB Ports",
-          "value": "1x USB 3.2 Gen 2x2 Type-C, 1x USB 3.2 Gen 2 Type-C, 6x USB 3.2 Gen 2 Type-A"
-        },
-        {
-          "label": "Audio",
-          "value": "ROG SupremeFX 7.1 Surround Sound High Definition Audio CODEC"
-        },
-        {
-          "label": "Ethernet",
-          "value": "Intel 2.5Gb Ethernet"
-        },
-        {
-          "label": "WiFi",
-          "value": "Wi-Fi 6E (802.11ax)"
-        },
-        {
-          "label": "Bluetooth",
-          "value": "Bluetooth 5.3"
-        }
-      ]
-    },
-    {
-      "id": "mb2",
-      "name": "MSI MAG B650 TOMAHAWK WIFI",
-      "socket": "AM5",
-      "chipset": "B650",
-      "usdPrice": 200,
-      "phpPrice": 12000,
-      "img": "http://googleusercontent.com/image_collection/image_retrieval/473135923434306691_0",
       "specs": []
     },
     {
@@ -96,6 +113,46 @@
       "specs": []
     },
     {
+      "id": "mb5",
+      "name": "NZXT N7 Z790",
+      "socket": "LGA1700",
+      "chipset": "Z790",
+      "usdPrice": 230,
+      "phpPrice": 14000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/17812854315601407622_0",
+      "specs": []
+    },
+    {
+      "id": "mb6",
+      "name": "MSI PRO B760-P WIFI",
+      "socket": "LGA1700",
+      "chipset": "B760",
+      "usdPrice": 160,
+      "phpPrice": 9500,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/10943960105318285521_0",
+      "specs": []
+    },
+    {
+      "id": "mb7",
+      "name": "ASRock Z690 Steel Legend WiFi 6E",
+      "socket": "LGA1700",
+      "chipset": "Z690",
+      "usdPrice": 190,
+      "phpPrice": 11000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/6317424694931327732_0",
+      "specs": []
+    },
+    {
+      "id": "mb2",
+      "name": "MSI MAG B650 TOMAHAWK WIFI",
+      "socket": "AM5",
+      "chipset": "B650",
+      "usdPrice": 200,
+      "phpPrice": 12000,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/473135923434306691_0",
+      "specs": []
+    },
+    {
       "id": "mb4",
       "name": "ASRock B650E Steel Legend WiFi",
       "socket": "AM5",
@@ -106,191 +163,34 @@
       "specs": []
     },
     {
-      "id": "mb5",
-      "name": "NZXT N7 Z790",
-      "socket": "LGA1700",
-      "chipset": "Z790",
-      "usdPrice": 230,
-      "phpPrice": 14000,
-      "img": "http://googleusercontent.com/image_collection/image_retrieval/17812854315601407622_0",
+      "id": "mb8",
+      "name": "GIGABYTE B550 AORUS Elite V2",
+      "socket": "AM4",
+      "chipset": "B550",
+      "usdPrice": 130,
+      "phpPrice": 7500,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/9360216550751996229_0",
+      "specs": []
+    },
+    {
+      "id": "mb9",
+      "name": "MSI MPG X570 GAMING PLUS",
+      "socket": "AM4",
+      "chipset": "X570",
+      "usdPrice": 180,
+      "phpPrice": 10500,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/1598444391672322646_0",
+      "specs": []
+    },
+    {
+      "id": "mb10",
+      "name": "ASUS Prime B450M-A/CSM",
+      "socket": "AM4",
+      "chipset": "B450",
+      "usdPrice": 80,
+      "phpPrice": 4800,
+      "img": "http://googleusercontent.com/image_collection/image_retrieval/9262176461971295980_0",
       "specs": []
     }
-  ],
-  "cpu": [
-  {
-    "id": "cpu1",
-    "name": "Intel Core i9-14900K",
-    "socket": "LGA1700",
-    "compatibleMotherboardIds": ["mb1", "mb3", "mb5"],
-    "usdPrice": 550,
-    "phpPrice": 32000,
-    "img": "http://googleusercontent.com/image_collection/image_retrieval/3820253406214349141_0",
-    "specs": [
-      {
-        "label": "Brand",
-        "value": "Intel"
-      },
-      {
-        "label": "Cores",
-        "value": "24 (8 P-cores + 16 E-cores)"
-      },
-      {
-        "label": "Threads",
-        "value": "32"
-      },
-      {
-        "label": "Max Turbo Frequency",
-        "value": "6.0 GHz"
-      },
-      {
-        "label": "Integrated Graphics",
-        "value": "Intel UHD Graphics 770"
-      },
-      {
-        "label": "Compatibility",
-        "value": "Intel 600 & 700 Series Motherboards"
-      }
-    ]
-  },
-  {
-    "id": "cpu2",
-    "name": "Intel Core i5-13600K",
-    "socket": "LGA1700",
-    "compatibleMotherboardIds": ["mb1", "mb3", "mb5"],
-    "usdPrice": 280,
-    "phpPrice": 16500,
-    "img": "http://googleusercontent.com/image_collection/image_retrieval/13352758156156711974_0",
-    "specs": [
-      {
-        "label": "Brand",
-        "value": "Intel"
-      },
-      {
-        "label": "Cores",
-        "value": "14 (6 P-cores + 8 E-cores)"
-      },
-      {
-        "label": "Threads",
-        "value": "20"
-      },
-      {
-        "label": "Max Turbo Frequency",
-        "value": "5.1 GHz"
-      },
-      {
-        "label": "Integrated Graphics",
-        "value": "Intel UHD Graphics 770"
-      },
-      {
-        "label": "Compatibility",
-        "value": "Intel 600 & 700 Series Motherboards"
-      }
-    ]
-  },
-  {
-    "id": "cpu3",
-    "name": "AMD Ryzen 9 7950X",
-    "socket": "AM5",
-    "compatibleMotherboardIds": ["mb2", "mb4"],
-    "usdPrice": 520,
-    "phpPrice": 30500,
-    "img": "http://googleusercontent.com/image_collection/image_retrieval/4507005470766468792_0",
-    "specs": [
-      {
-        "label": "Brand",
-        "value": "AMD"
-      },
-      {
-        "label": "Cores",
-        "value": "16"
-      },
-      {
-        "label": "Threads",
-        "value": "32"
-      },
-      {
-        "label": "Max Boost Clock",
-        "value": "5.7 GHz"
-      },
-      {
-        "label": "Integrated Graphics",
-        "value": "AMD Radeon Graphics"
-      },
-      {
-        "label": "Compatibility",
-        "value": "AMD B650/B650E, X670/X670E Chipsets"
-      }
-    ]
-  },
-  {
-    "id": "cpu4",
-    "name": "AMD Ryzen 7 7800X3D",
-    "socket": "AM5",
-    "compatibleMotherboardIds": ["mb2", "mb4"],
-    "usdPrice": 380,
-    "phpPrice": 22500,
-    "img": "http://googleusercontent.com/image_collection/image_retrieval/459700587788448877_0",
-    "specs": [
-      {
-        "label": "Brand",
-        "value": "AMD"
-      },
-      {
-        "label": "Cores",
-        "value": "8"
-      },
-      {
-        "label": "Threads",
-        "value": "16"
-      },
-      {
-        "label": "Max Boost Clock",
-        "value": "5.0 GHz"
-      },
-      {
-        "label": "Integrated Graphics",
-        "value": "AMD Radeon Graphics"
-      },
-      {
-        "label": "Compatibility",
-        "value": "AMD B650/B650E, X670/X670E Chipsets"
-      }
-    ]
-  },
-  {
-    "id": "cpu5",
-    "name": "AMD Ryzen 5 7600X",
-    "socket": "AM5",
-    "compatibleMotherboardIds": ["mb2", "mb4"],
-    "usdPrice": 200,
-    "phpPrice": 11500,
-    "img": "http://googleusercontent.com/image_collection/image_retrieval/18251399778216174825_0",
-    "specs": [
-      {
-        "label": "Brand",
-        "value": "AMD"
-      },
-      {
-        "label": "Cores",
-        "value": "6"
-      },
-      {
-        "label": "Threads",
-        "value": "12"
-      },
-      {
-        "label": "Max Boost Clock",
-        "value": "5.3 GHz"
-      },
-      {
-        "label": "Integrated Graphics",
-        "value": "AMD Radeon Graphics"
-      },
-      {
-        "label": "Compatibility",
-        "value": "AMD B650/B650E, X670/X670E Chipsets"
-      }
-    ]
-  }
-]
+  ]
 }

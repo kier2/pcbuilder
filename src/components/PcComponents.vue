@@ -9,7 +9,10 @@ import {
   Gpu,
   PcCase,
   HardDrive,
-  Trash2
+  Trash2,
+  Keyboard,
+  Mouse,
+  Headphones
 } from "lucide-vue-next";
 
 const pcComponents = ref([
@@ -20,12 +23,12 @@ const pcComponents = ref([
   },
   {
     name: "Motherboard",
-    slug: "motherboards",
+    slug: "motherboard",
     icon: Microchip,
   },
   {
     name: "CPU Cooler",
-    slug: "fan",
+    slug: "cooler",
     icon: Fan,
   },
   {
@@ -52,13 +55,31 @@ const pcComponents = ref([
     name: "Case",
     slug: "case",
     icon: PcCase,
-  },
-  {
-    name: "Monitor",
-    slug: "monitor",
-    icon: Monitor,
-  },
+  }
 ]);
+// To Create another component
+// const peripherals = ref([
+//   {
+//     name: "Keyboard",
+//     slug: "keyboard",
+//     icon: Keyboard,
+//   },
+//   {
+//     name: "Mouse",
+//     slug: "mouse",
+//     icon: Mouse,
+//   },
+//   {
+//     name: "Headset",
+//     slug: "headset",
+//     icon: Headphones,
+//   },
+//   {
+//     name: "Monitor",
+//     slug: "monitor",
+//     icon: Monitor,
+//   }
+// ]);
 
 // variables
 const selectedComponent = ref();
@@ -118,17 +139,11 @@ watch(
   }
 );
 
-// onMounted(() => {
-//   fetchSelectedParts();
-// })
-
 </script>
 <template>
-  <div class="h-screen overflow-y-auto overflow-x-hidden shadow sm:rounded-md w-full md:h-screen md:sticky md:top-0 custom-scrollbar">
-
-    <h2 class="text-white capitalize text-2xl font-semibold mb-5">Select Components</h2>
-
-    <ul role="list" class="text-gray-300 flex flex-col space-y-3">
+  <div class=" overflow-y-auto overflow-x-hidden shadow sm:rounded-md w-full md:h-[75%] md:sticky md:top-0 custom-scrollbar">
+    <ul
+     role="list" class="text-gray-300 flex flex-col space-y-3">
       <li
         v-for="(pcComponent, index) in pcComponents"
         :key="index"
