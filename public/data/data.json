@@ -7,7 +7,13 @@
       "usdPrice": 550,
       "phpPrice": 32000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/3820253406214349141_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "24 (8P + 16E)" },
+        { "label": "Threads", "value": "32" },
+        { "label": "Max Turbo Frequency", "value": "6.0 GHz" },
+        { "label": "Cache", "value": "36 MB" },
+        { "label": "TDP", "value": "125W" }
+      ]
     },
     {
       "id": "cpu2",
@@ -16,7 +22,13 @@
       "usdPrice": 400,
       "phpPrice": 23500,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/12022421395358055451_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "20 (8P + 12E)" },
+        { "label": "Threads", "value": "28" },
+        { "label": "Max Turbo Frequency", "value": "5.6 GHz" },
+        { "label": "Cache", "value": "33 MB" },
+        { "label": "TDP", "value": "125W" }
+      ]
     },
     {
       "id": "cpu3",
@@ -25,7 +37,13 @@
       "usdPrice": 280,
       "phpPrice": 16500,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/13352758156156711974_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "14 (6P + 8E)" },
+        { "label": "Threads", "value": "20" },
+        { "label": "Max Turbo Frequency", "value": "5.1 GHz" },
+        { "label": "Cache", "value": "24 MB" },
+        { "label": "TDP", "value": "125W" }
+      ]
     },
     {
       "id": "cpu4",
@@ -34,7 +52,13 @@
       "usdPrice": 100,
       "phpPrice": 5800,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/1498064516361099195_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "4 (4P)" },
+        { "label": "Threads", "value": "8" },
+        { "label": "Max Turbo Frequency", "value": "4.3 GHz" },
+        { "label": "Cache", "value": "12 MB" },
+        { "label": "TDP", "value": "58W" }
+      ]
     },
     {
       "id": "cpu5",
@@ -43,7 +67,13 @@
       "usdPrice": 520,
       "phpPrice": 30500,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/4507005470766468792_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "16" },
+        { "label": "Threads", "value": "32" },
+        { "label": "Max Boost Clock", "value": "5.7 GHz" },
+        { "label": "Cache", "value": "80 MB" },
+        { "label": "TDP", "value": "170W" }
+      ]
     },
     {
       "id": "cpu6",
@@ -52,7 +82,13 @@
       "usdPrice": 380,
       "phpPrice": 22500,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/459700587788448877_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "8" },
+        { "label": "Threads", "value": "16" },
+        { "label": "Max Boost Clock", "value": "5.0 GHz" },
+        { "label": "Cache", "value": "104 MB" },
+        { "label": "TDP", "value": "120W" }
+      ]
     },
     {
       "id": "cpu7",
@@ -61,7 +97,13 @@
       "usdPrice": 200,
       "phpPrice": 11500,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/18251399778216174825_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "6" },
+        { "label": "Threads", "value": "12" },
+        { "label": "Max Boost Clock", "value": "5.3 GHz" },
+        { "label": "Cache", "value": "38 MB" },
+        { "label": "TDP", "value": "105W" }
+      ]
     },
     {
       "id": "cpu8",
@@ -70,7 +112,13 @@
       "usdPrice": 290,
       "phpPrice": 17000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/10976535928841022204_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "8" },
+        { "label": "Threads", "value": "16" },
+        { "label": "Max Boost Clock", "value": "4.5 GHz" },
+        { "label": "Cache", "value": "100 MB" },
+        { "label": "TDP", "value": "105W" }
+      ]
     },
     {
       "id": "cpu9",
@@ -79,7 +127,13 @@
       "usdPrice": 150,
       "phpPrice": 8800,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/12022421395358055451_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "6" },
+        { "label": "Threads", "value": "12" },
+        { "label": "Max Boost Clock", "value": "4.6 GHz" },
+        { "label": "Cache", "value": "35 MB" },
+        { "label": "TDP", "value": "65W" }
+      ]
     },
     {
       "id": "cpu10",
@@ -88,7 +142,13 @@
       "usdPrice": 80,
       "phpPrice": 4700,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/12836262453673322476_0",
-      "specs": []
+      "specs": [
+        { "label": "Cores", "value": "4" },
+        { "label": "Threads", "value": "8" },
+        { "label": "Max Boost Clock", "value": "3.9 GHz" },
+        { "label": "Cache", "value": "18 MB" },
+        { "label": "TDP", "value": "65W" }
+      ]
     }
   ],
   "motherboard": [
@@ -100,7 +160,13 @@
       "usdPrice": 350,
       "phpPrice": 20000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/4198724634995938274_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR5" },
+        { "label": "PCIe", "value": "PCIe 5.0" },
+        { "label": "M.2 Slots", "value": "5" },
+        { "label": "Networking", "value": "Wi-Fi 6E, 2.5G LAN" }
+      ]
     },
     {
       "id": "mb3",
@@ -110,7 +176,13 @@
       "usdPrice": 250,
       "phpPrice": 15000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/2746624487628821023_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR5" },
+        { "label": "PCIe", "value": "PCIe 5.0" },
+        { "label": "M.2 Slots", "value": "4" },
+        { "label": "Networking", "value": "Wi-Fi 6E, 2.5G LAN" }
+      ]
     },
     {
       "id": "mb5",
@@ -120,7 +192,13 @@
       "usdPrice": 230,
       "phpPrice": 14000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/17812854315601407622_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR4" },
+        { "label": "PCIe", "value": "PCIe 5.0" },
+        { "label": "M.2 Slots", "value": "4" },
+        { "label": "Networking", "value": "Wi-Fi 6E, 2.5G LAN" }
+      ]
     },
     {
       "id": "mb6",
@@ -130,7 +208,13 @@
       "usdPrice": 160,
       "phpPrice": 9500,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/10943960105318285521_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR5" },
+        { "label": "PCIe", "value": "PCIe 4.0" },
+        { "label": "M.2 Slots", "value": "2" },
+        { "label": "Networking", "value": "Wi-Fi 6E, 2.5G LAN" }
+      ]
     },
     {
       "id": "mb7",
@@ -140,7 +224,13 @@
       "usdPrice": 190,
       "phpPrice": 11000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/6317424694931327732_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR4" },
+        { "label": "PCIe", "value": "PCIe 5.0" },
+        { "label": "M.2 Slots", "value": "3" },
+        { "label": "Networking", "value": "Wi-Fi 6E, 2.5G LAN" }
+      ]
     },
     {
       "id": "mb2",
@@ -150,7 +240,13 @@
       "usdPrice": 200,
       "phpPrice": 12000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/473135923434306691_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR5" },
+        { "label": "PCIe", "value": "PCIe 4.0" },
+        { "label": "M.2 Slots", "value": "2" },
+        { "label": "Networking", "value": "Wi-Fi 6E, 2.5G LAN" }
+      ]
     },
     {
       "id": "mb4",
@@ -160,7 +256,13 @@
       "usdPrice": 220,
       "phpPrice": 13000,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/1836091859820605306_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR5" },
+        { "label": "PCIe", "value": "PCIe 5.0" },
+        { "label": "M.2 Slots", "value": "3" },
+        { "label": "Networking", "value": "Wi-Fi 6E, 2.5G LAN" }
+      ]
     },
     {
       "id": "mb8",
@@ -170,7 +272,13 @@
       "usdPrice": 130,
       "phpPrice": 7500,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/9360216550751996229_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR4" },
+        { "label": "PCIe", "value": "PCIe 4.0" },
+        { "label": "M.2 Slots", "value": "2" },
+        { "label": "Networking", "value": "2.5G LAN" }
+      ]
     },
     {
       "id": "mb9",
@@ -180,7 +288,13 @@
       "usdPrice": 180,
       "phpPrice": 10500,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/1598444391672322646_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "ATX" },
+        { "label": "Memory", "value": "DDR4" },
+        { "label": "PCIe", "value": "PCIe 4.0" },
+        { "label": "M.2 Slots", "value": "2" },
+        { "label": "Networking", "value": "Gigabit LAN" }
+      ]
     },
     {
       "id": "mb10",
@@ -190,7 +304,13 @@
       "usdPrice": 80,
       "phpPrice": 4800,
       "img": "http://googleusercontent.com/image_collection/image_retrieval/9262176461971295980_0",
-      "specs": []
+      "specs": [
+        { "label": "Form Factor", "value": "Micro-ATX" },
+        { "label": "Memory", "value": "DDR4" },
+        { "label": "PCIe", "value": "PCIe 3.0" },
+        { "label": "M.2 Slots", "value": "1" },
+        { "label": "Networking", "value": "Gigabit LAN" }
+      ]
     }
   ]
 }

@@ -6,11 +6,12 @@
   // props
   const props = defineProps({
     selectedItem: Object,
-    selectedParts: Object
+    selectedParts: Object,
+    isCurrencyUsd: Boolean
   });
 
   // emits
-  const  emit = defineEmits(['selectedParts', 'priceOfSelected', 'isCurrUsd']);
+  const  emit = defineEmits(['selectedParts', 'priceOfSelected']);
 
   // variables
   const allComponentData = ref({});
@@ -18,7 +19,6 @@
   const error = ref(null);
   const openPopup = ref(false)
   const selectedInfoParts = ref({})
-  const isUsd = ref(false)
 
   const selectedCpu = computed(() => props.selectedParts?.cpu);
   const selectedMotherboard = computed(() => props.selectedParts?.motherboard);
@@ -105,9 +105,10 @@
     return selectedInfoParts
   }
 
-  watch(isUsd, (newVal) => {
-      emit('isCurrUsd', newVal)
-      // console.log(props.selectedItem)
+  watch(
+    () => props.isCurrencyUsd,
+    () => {
+      console.log('Received: ', props.isCurrencyUsd)
     },{
       immediate: true
     }
@@ -120,37 +121,11 @@
     <div class="md:pl-10 pr-3 py-2">
       <div class="flex items-center justify-between mb-5">
         <div>
-          <h2 class="text-white capitalize text-2xl font-semibold">
+          <h2 class="text-white uppercase text-2xl font-semibold">
             <span v-if="props.selectedItem">
               {{ props.selectedItem.slug }}
             </span>
           </h2>
-        </div>
-        <div
-        v-if="currentParts.length > 0"
-        class="flex gap-1.5 items-center">
-          <div class="group relative inline-flex w-11 shrink-0 rounded-full bg-gray-300 p-0.5 inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-checked:bg-indigo-600 has-focus-visible:outline-2">
-            <span class="relative size-5 rounded-full bg-gray-100 shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-5">
-              <span class="absolute inset-0 flex size-full items-center justify-center opacity-100 transition-opacity duration-200 ease-in group-has-checked:opacity-0 group-has-checked:duration-100 group-has-checked:ease-out" aria-hidden="true">
-                <svg class="size-3 text-gray-400" fill="none" viewBox="0 0 12 12">
-                  <path d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-              <span class="absolute inset-0 flex size-full items-center justify-center opacity-0 transition-opacity duration-100 ease-out group-has-checked:opacity-100 group-has-checked:duration-200 group-has-checked:ease-in" aria-hidden="true">
-                <svg class="size-3 text-indigo-600" fill="currentColor" viewBox="0 0 12 12">
-                  <path d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z" />
-                </svg>
-              </span>
-            </span>
-            <input
-            type="checkbox"
-            class="absolute inset-0 appearance-none focus:outline-hidden cursor-pointer" aria-label="Use setting" name="setting" id="toggleCurr"
-            v-model="isUsd" />
-          </div>
-          <label
-          for="toggleCurr"
-          :class="isUsd ? 'text-green-500' : 'text-gray-500'"
-          >USD</label>
         </div>
       </div>
 
@@ -171,14 +146,14 @@
                 </div>
                 <div>
                   <h4 class="flex items-center gap-1 justify-end">
-                    <span v-if="isUsd">
+                    <span v-if="props.isCurrencyUsd">
                       <DollarSign class="text-gray-400 size-4" />
                     </span>
                     <span v-else>
                       <PhilippinePeso class="text-gray-400 size-4" />
                     </span>
                     <span class="text-lg font-semibold">
-                      {{ isUsd ? part.usdPrice : part.phpPrice }}
+                      {{ props.isCurrencyUsd ? part.usdPrice : part.phpPrice }}
                     </span>
                   </h4>
                 </div>

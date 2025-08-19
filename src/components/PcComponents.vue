@@ -84,6 +84,7 @@ const pcComponents = ref([
 // variables
 const selectedComponent = ref();
 // const selectedPartsData = ref({})
+const activeComponentSlug = ref(null);
 
 // props
 const props = defineProps({
@@ -113,9 +114,11 @@ const getSelectedPartName = (slug) =>  {
 const handleClick = (e) => {
   const targetComponentDiv = e.target.closest("div[data-component]");
   if (targetComponentDiv) {
+    const slug = targetComponentDiv.dataset.component;
     selectedComponent.value = targetComponentDiv.dataset.component
+    activeComponentSlug.value = slug;
     emit("updateComponentSelection", {
-      selectedItem: targetComponentDiv.dataset.component,
+      selectedItem: slug,
     });
   }
 };
@@ -148,8 +151,15 @@ watch(
         v-for="(pcComponent, index) in pcComponents"
         :key="index"
         @click="handleClick"
-        class="bg-gray-900/80 shadow-sm rgounded transition cursor-pointer hover:bg-gray-900/90 border border-gray-900/80 hover:border-gray-50 group
-        relative"
+        class="bg-gray-900/80 shadow-sm rounded cursor-pointer group transition-all duration-300 ease-in-out"
+        :class="{
+          // Border for when a part has been selected
+          'border-l-6 border-indigo-400': getSelectedPartName(pcComponent.slug),
+          // Default border when no part is selected
+          'border-l-6 border-gray-900/80': !getSelectedPartName(pcComponent.slug),
+          // Ring for the currently clicked item
+          'border-l-6 border-r-0 border-t-0 border-b-0 border-indigo-400': pcComponent.slug === activeComponentSlug
+        }"
       >
         <div
         v-if="getSelectedPartName(pcComponent.slug)"
