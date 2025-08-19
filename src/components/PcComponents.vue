@@ -5,14 +5,10 @@ import {
   Cpu,
   Fan,
   MemoryStick,
-  Monitor,
   Gpu,
   PcCase,
   HardDrive,
   Trash2,
-  Keyboard,
-  Mouse,
-  Headphones
 } from "lucide-vue-next";
 
 const pcComponents = ref([
@@ -57,29 +53,6 @@ const pcComponents = ref([
     icon: PcCase,
   }
 ]);
-// To Create another component
-// const peripherals = ref([
-//   {
-//     name: "Keyboard",
-//     slug: "keyboard",
-//     icon: Keyboard,
-//   },
-//   {
-//     name: "Mouse",
-//     slug: "mouse",
-//     icon: Mouse,
-//   },
-//   {
-//     name: "Headset",
-//     slug: "headset",
-//     icon: Headphones,
-//   },
-//   {
-//     name: "Monitor",
-//     slug: "monitor",
-//     icon: Monitor,
-//   }
-// ]);
 
 // variables
 const selectedComponent = ref();

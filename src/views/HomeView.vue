@@ -1,10 +1,13 @@
 <script setup>
 import { ref, watch } from "vue";
 import ComputerPartsSection from "@/components/ComputerParts.vue";
+import PcPeripherals from "@/components/PcPeripherals.vue";
+import PeripheralParts from "@/components/PeripheralParts.vue";
 import PcComponents from "@/components/PcComponents.vue";
 import BottomContent from "@/components/BottomContent.vue";
 import { ChevronDown } from 'lucide-vue-next';
 
+// Tracks the currently selected list item (component or peripheral)
 const pcComponentsData = ref({});
 const selectedPartsData = ref({});
 const selectedPartsPriceData = ref({});
@@ -12,13 +15,13 @@ const subtotal = ref(0);
 const activeTab = ref('Components');
 const isUsd = ref(false)
 
+// Function to handle a selection from PcComponents
 const selectedComponent = (pcComponent) => {
   return pcComponentsData.value.slug = pcComponent.selectedItem;
 };
 
 // ComputerParts Get Emits
 const updateSelectedParts = (part) => {
-  // console.log(part.selectedPartId)
   selectedPartsData.value[part.selectedComponent] = {
     id: part.selectedPartId,
     name: part.selectedComponentsPart,
@@ -60,13 +63,11 @@ const changeTab = (tabName) => {
 };
 
 watch(isUsd, (newVal) => {
-    // emit('isCurrUsd', newVal)
-    console.log('Passed:',newVal)
+    console.log('Passed:', newVal)
   },{
     immediate: true
   }
 );
-
 </script>
 
 <template>
@@ -147,6 +148,20 @@ watch(isUsd, (newVal) => {
       <div
         v-else
         class="flex w-full h-full p-6 md:flex-row flex-col gap-y-12">
+        <PcPeripherals
+          @update-component-selection="selectedComponent"
+          @remove-component="handleRemoveComponent"
+          :selected-parts="selectedPartsData"
+          :is-currency-usd="isUsd"
+        />
+
+        <PeripheralParts
+          :selected-item="pcComponentsData"
+          :selected-parts="selectedPartsData"
+          :is-currency-usd="isUsd"
+          @selected-parts="updateSelectedParts"
+          @price-of-selected="getPartsPriceData"
+        />
       </div>
 
     </div>
