@@ -46,7 +46,7 @@ const props = defineProps({
 })
 
 // emits
-const emit = defineEmits(["updatePeripheralSelection", "removePeripheral"]);
+const emit = defineEmits(["updatePeripheralSelection", "removeSelectedParts"]);
 
 // Functions
 const getSelectedPartName = (slug) => {
@@ -68,10 +68,8 @@ const handleClick = (e) => {
 
 const handleRemovePeripheral = (slugToRemove) => {
   const partToRemove = props.selectedParts?.[slugToRemove];
-
   if (partToRemove) {
-    const priceToRemove = props.isCurrencyUsd ? partToRemove.priceUsd : partToRemove.pricePhp;
-    emit("removePeripheral", { slugToRemove, priceToRemove });
+    emit("removeSelectedParts", { slugToRemove });
   }
 }
 
@@ -94,7 +92,7 @@ watch(
         v-for="(peripheral, index) in peripherals"
         :key="index"
         @click="handleClick"
-        class="bg-gray-900/80 shadow-sm rounded cursor-pointer group transition-all duration-300 ease-in-out"
+        class="bg-gray-900/80 shadow-sm rounded cursor-pointer group transition-all duration-300 ease-in-out relative"
         :class="{
           // Border for when a part has been selected
           'border-l-6 border-indigo-400': getSelectedPartName(peripheral.slug),

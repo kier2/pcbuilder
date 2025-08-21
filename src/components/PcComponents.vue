@@ -69,7 +69,7 @@ const props = defineProps({
 })
 
 // emits
-const emit = defineEmits(["updateComponentSelection", "removeComponent"]);
+const emit = defineEmits(["updateComponentSelection", "removeSelectedParts"]);
 
 // Database Actions
 // const fetchSelectedParts = () => {
@@ -101,14 +101,14 @@ const handleRemoveComponent = (slugToRemove) => {
   const partToRemove = props.selectedParts?.[slugToRemove];
 
   if (partToRemove) {
-    const priceToRemove = props.isCurrencyUsd ? partToRemove.priceUsd : partToRemove.pricePhp;
-    emit("removeComponent", { slugToRemove, priceToRemove });
+    emit("removeSelectedParts", { slugToRemove });
   }
 }
 
 watch(
   [() => props.selectedParts, () => props.isCurrencyUsd],
   () => {
+  console.log('PcComponents: Received updated selectedParts prop:', props.selectedParts);
   },
   {
     deep: true,
@@ -124,7 +124,7 @@ watch(
         v-for="(pcComponent, index) in pcComponents"
         :key="index"
         @click="handleClick"
-        class="bg-gray-900/80 shadow-sm rounded cursor-pointer group transition-all duration-300 ease-in-out"
+        class="bg-gray-900/80 shadow-sm rounded cursor-pointer group transition-all duration-300 ease-in-out relative"
         :class="{
           // Border for when a part has been selected
           'border-l-6 border-indigo-400': getSelectedPartName(pcComponent.slug),

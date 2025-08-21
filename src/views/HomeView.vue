@@ -1,28 +1,45 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import ComputerPartsSection from "@/components/ComputerParts.vue";
 import PcPeripherals from "@/components/PcPeripherals.vue";
 import PeripheralParts from "@/components/PeripheralParts.vue";
 import PcComponents from "@/components/PcComponents.vue";
 import BottomContent from "@/components/BottomContent.vue";
 import { ChevronDown } from 'lucide-vue-next';
+import PDFGeneration from '@/views/PDFGeneration.vue';
 
-// Tracks the currently selected list item (component or peripheral)
-const pcComponentsData = ref({});
-const selectedPartsData = ref({});
-const selectedPartsPriceData = ref({});
+const pdfGen = ref(null);
 const subtotal = ref(0);
 const activeTab = ref('Components');
 const isUsd = ref(false)
 
-// Function to handle a selection from PcComponents
-const selectedComponent = (pcComponent) => {
-  return pcComponentsData.value.slug = pcComponent.selectedItem;
+const state = ref({
+  components: {
+    selectionItem: {},
+    selectedParts: {},
+    selectedPrices: {}
+  },
+  peripherals: {
+    selectionItem: {},
+    selectedParts: {},
+    selectedPrices: {}
+  }
+});
+
+const currentTabState = computed(() => {
+  return activeTab.value === 'Components'
+    ? state.value.components
+    : state.value.peripherals;
+});
+
+// PcComponents
+const selectedItem = (data) => {
+  return currentTabState.value.selectionItem.slug = data.selectedItem;
 };
 
-// ComputerParts Get Emits
+// ComputerParts get Emits
 const updateSelectedParts = (part) => {
-  selectedPartsData.value[part.selectedComponent] = {
+  currentTabState.value.selectedParts[part.selectedComponent] = {
     id: part.selectedPartId,
     name: part.selectedComponentsPart,
     img: part.selectedComponentsPartImg,
@@ -34,23 +51,32 @@ const updateSelectedParts = (part) => {
 }
 
 const getPartsPriceData = (data) => {
-  selectedPartsPriceData.value[data.component] = {
+  currentTabState.value.selectedPrices[data.component] = {
     priceUsd: data.priceUsd,
     pricePhp: data.pricePhp
   }
-  return selectedPartsPriceData;
+  return currentTabState.value.selectedPrices;
 }
 
-const handleRemoveComponent = ({ slugToRemove, priceToRemove }) => {
-  const newSelectedParts = { ...selectedPartsData.value };
+const handleRemoveSelectedParts = ({ slugToRemove }) => {
+  const newSelectedParts = { ...currentTabState.value.selectedParts };
   delete newSelectedParts[slugToRemove];
-  selectedPartsData.value = newSelectedParts;
+  currentTabState.value.selectedParts = newSelectedParts;
 
-  const newSelectedPrices = { ...selectedPartsPriceData.value };
+  const newSelectedPrices = { ...currentTabState.value.selectedPrices };
   delete newSelectedPrices[slugToRemove];
-  selectedPartsPriceData.value = newSelectedPrices;
+  currentTabState.value.selectedPrices = newSelectedPrices;
 
-  subtotal.value -= priceToRemove;
+  // subtotal.value -= priceToRemove;
+  subtotal.value = Object.values({
+    ...state.value.components.selectedPrices,
+    ...state.value.peripherals.selectedPrices
+  }).reduce((sum, item) => sum + (isUsd.value ? item.priceUsd : item.pricePhp), 0);
+}
+
+const handleSave = () => {
+  localStorage.setItem("pcBuilderData", JSON.stringify(state.value));
+  pdfGen.value.generatePDF();
 }
 
 const tabs = [
@@ -68,6 +94,8 @@ watch(isUsd, (newVal) => {
     immediate: true
   }
 );
+
+
 </script>
 
 <template>
@@ -77,7 +105,7 @@ watch(isUsd, (newVal) => {
         <div class="grid grid-cols-1 sm:hidden">
           <select aria-label="Select a tab"
           class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-2 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 dark:bg-white/5 dark:text-gray-100 dark:outline-white/10 dark:*:bg-gray-800 dark:focus:outline-indigo-500"
-          @change="changeTab($event.target.value)">
+          v-model="activeTab">
             <option
             v-for="tab in tabs"
             :key="tab.name"
@@ -126,19 +154,20 @@ watch(isUsd, (newVal) => {
           >USD</label>
         </div>
       </header>
+      <!-- <p class="text-white">Active Tab: {{ activeTab }}</p> -->
 
       <div
         v-if="activeTab === 'Components'"
-      class="flex w-full h-full p-6 md:flex-row flex-col gap-y-12">
+        class="flex w-full h-full p-6 md:flex-row flex-col gap-y-12">
         <PcComponents
-          @update-component-selection="selectedComponent"
-          @remove-component="handleRemoveComponent"
-          :selected-parts="selectedPartsData"
+          @update-component-selection="selectedItem"
+          @remove-selected-parts="handleRemoveSelectedParts"
+          :selected-parts="state.components.selectedParts"
           :is-currency-usd="isUsd" />
 
         <ComputerPartsSection
-          :selected-item="pcComponentsData"
-          :selected-parts="selectedPartsData"
+          :selected-item="state.components.selectionItem"
+          :selected-parts="state.components.selectedParts"
           :is-currency-usd="isUsd"
           @selected-parts="updateSelectedParts"
           @price-of-selected="getPartsPriceData"
@@ -146,30 +175,35 @@ watch(isUsd, (newVal) => {
       </div>
 
       <div
-        v-else
+        v-else-if="activeTab === 'Peripherals'"
         class="flex w-full h-full p-6 md:flex-row flex-col gap-y-12">
         <PcPeripherals
-          @update-component-selection="selectedComponent"
-          @remove-component="handleRemoveComponent"
-          :selected-parts="selectedPartsData"
+          @update-peripheral-selection="selectedItem"
+          @remove-selected-parts="handleRemoveSelectedParts"
+          :selected-parts="state.peripherals.selectedParts"
           :is-currency-usd="isUsd"
         />
 
         <PeripheralParts
-          :selected-item="pcComponentsData"
-          :selected-parts="selectedPartsData"
-          :is-currency-usd="isUsd"
           @selected-parts="updateSelectedParts"
           @price-of-selected="getPartsPriceData"
+          :selected-item="state.peripherals.selectionItem"
+          :selected-parts="state.peripherals.selectedParts"
+          :is-currency-usd="isUsd"
         />
       </div>
 
     </div>
 
     <BottomContent
-      :selected-price="selectedPartsPriceData"
+      :selected-price="{
+        ...state.components.selectedPrices,
+        ...state.peripherals.selectedPrices
+      }"
       :is-currency-usd="isUsd"
       :subtotal="subtotal"
+      @save="handleSave"
     />
+    <PDFGeneration ref="pdfGen" />
   </main>
 </template>

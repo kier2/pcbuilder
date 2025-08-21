@@ -1,8 +1,6 @@
 <script setup>
   import { watch, computed } from 'vue';
   import { ArrowUpFromLine, FileText, PhilippinePeso, DollarSign } from 'lucide-vue-next';
-
-
    // props
   const props = defineProps({
     selectedPrice: {
@@ -78,7 +76,8 @@
         <div class="flex justify-between items-center gap-6">
           <button
            class="text-center text-green-400 hover:text-gray-400 cursor-pointer outline-0"
-           type="button">
+           type="button"
+           @click="$emit('save')">
            <ArrowUpFromLine class="size-6 mx-auto"/>
             Save
           </button>

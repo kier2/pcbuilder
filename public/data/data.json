@@ -312,5 +312,401 @@
         { "label": "Networking", "value": "Gigabit LAN" }
       ]
     }
+  ],
+  "cooler": [
+    {
+      "id": "cooler1",
+      "name": "Noctua NH-D15",
+      "compatibleSockets": ["LGA1700", "AM5", "AM4"],
+      "usdPrice": 110,
+      "phpPrice": 6400,
+      "img": "https://placehold.co/400x400/000/FFF?text=Noctua+NH-D15",
+      "specs": [
+        { "label": "Type", "value": "Air Cooler" },
+        { "label": "Fan Size", "value": "2 x 140mm" },
+        { "label": "Noise Level", "value": "24.6 dBA" }
+      ]
+    },
+    {
+      "id": "cooler2",
+      "name": "Corsair iCUE H150i RGB ELITE",
+      "compatibleSockets": ["LGA1700", "AM5"],
+      "usdPrice": 180,
+      "phpPrice": 10500,
+      "img": "https://placehold.co/400x400/000/FFF?text=Corsair+H150i",
+      "specs": [
+        { "label": "Type", "value": "Liquid Cooler (360mm AIO)" },
+        { "label": "Fan Size", "value": "3 x 120mm" },
+        { "label": "Noise Level", "value": "18-28 dBA" }
+      ]
+    },
+    {
+      "id": "cooler3",
+      "name": "DeepCool AK400 ZERO DARK PLUS",
+      "compatibleSockets": ["LGA1700", "AM5", "AM4"],
+      "usdPrice": 35,
+      "phpPrice": 2000,
+      "img": "https://placehold.co/400x400/000/FFF?text=DeepCool+AK400",
+      "specs": [
+        { "label": "Type", "value": "Air Cooler" },
+        { "label": "Fan Size", "value": "120mm" },
+        { "label": "Noise Level", "value": "29 dBA" }
+      ]
+    },
+    {
+      "id": "cooler4",
+      "name": "NZXT Kraken Z73 RGB",
+      "compatibleSockets": ["LGA1700", "AM5"],
+      "usdPrice": 280,
+      "phpPrice": 16500,
+      "img": "https://placehold.co/400x400/000/FFF?text=NZXT+Kraken+Z73",
+      "specs": [
+        { "label": "Type", "value": "Liquid Cooler (360mm AIO)" },
+        { "label": "Fan Size", "value": "3 x 120mm" },
+        { "label": "Features", "value": "LCD Display" }
+      ]
+    },
+    {
+      "id": "cooler5",
+      "name": "be quiet! Dark Rock Pro 4",
+      "compatibleSockets": ["LGA1700", "AM4"],
+      "usdPrice": 90,
+      "phpPrice": 5200,
+      "img": "https://placehold.co/400x400/000/FFF?text=Dark+Rock+Pro+4",
+      "specs": [
+        { "label": "Type", "value": "Air Cooler" },
+        { "label": "Fan Size", "value": "120mm, 135mm" },
+        { "label": "Noise Level", "value": "24.3 dBA" }
+      ]
+    },
+    {
+      "id": "cooler6",
+      "name": "ARCTIC Liquid Freezer II 240",
+      "compatibleSockets": ["LGA1700", "AM5", "AM4"],
+      "usdPrice": 120,
+      "phpPrice": 7000,
+      "img": "https://placehold.co/400x400/000/FFF?text=Arctic+Liquid+Freezer",
+      "specs": [
+        { "label": "Type", "value": "Liquid Cooler (240mm AIO)" },
+        { "label": "Fan Size", "value": "2 x 120mm" },
+        { "label": "Features", "value": "VRM Fan" }
+      ]
+    },
+    {
+      "id": "cooler7",
+      "name": "DeepCool AS500 Plus",
+      "compatibleSockets": ["LGA1700", "AM4"],
+      "usdPrice": 70,
+      "phpPrice": 4100,
+      "img": "https://placehold.co/400x400/000/FFF?text=DeepCool+AS500",
+      "specs": [
+        { "label": "Type", "value": "Air Cooler" },
+        { "label": "Fan Size", "value": "2 x 140mm" },
+        { "label": "Noise Level", "value": "29 dBA" }
+      ]
+    },
+    {
+      "id": "cooler8",
+      "name": "Lian Li Galahad II Trinity SL-INF 360",
+      "compatibleSockets": ["LGA1700", "AM5"],
+      "usdPrice": 200,
+      "phpPrice": 11800,
+      "img": "https://placehold.co/400x400/000/FFF?text=Lian+Li+Galahad",
+      "specs": [
+        { "label": "Type", "value": "Liquid Cooler (360mm AIO)" },
+        { "label": "Fan Size", "value": "3 x 120mm" },
+        { "label": "Features", "value": "Infinity Fans" }
+      ]
+    },
+    {
+      "id": "cooler9",
+      "name": "Thermalright Phantom Spirit 120",
+      "compatibleSockets": ["LGA1700", "AM5", "AM4"],
+      "usdPrice": 40,
+      "phpPrice": 2300,
+      "img": "https://placehold.co/400x400/000/FFF?text=Thermalright+PS120",
+      "specs": [
+        { "label": "Type", "value": "Air Cooler" },
+        { "label": "Fan Size", "value": "2 x 120mm" },
+        { "label": "TDP", "value": "245W" }
+      ]
+    },
+    {
+      "id": "cooler10",
+      "name": "Cooler Master Hyper 212 Black Edition",
+      "compatibleSockets": ["LGA1700", "AM5", "AM4"],
+      "usdPrice": 45,
+      "phpPrice": 2600,
+      "img": "https://placehold.co/400x400/000/FFF?text=Cooler+Master",
+      "specs": [
+        { "label": "Type", "value": "Air Cooler" },
+        { "label": "Fan Size", "value": "120mm" },
+        { "label": "Noise Level", "value": "8-27 dBA" }
+      ]
+    }
+  ],
+  "headset": [
+    {
+      "id": "headset1",
+      "name": "Razer BlackShark V2 Pro",
+      "usdPrice": 180,
+      "phpPrice": 10500,
+      "img": "https://placehold.co/400x400/000/FFF?text=Razer+BlackShark",
+      "specs": [
+        { "label": "Type", "value": "Wireless" },
+        { "label": "Audio", "value": "7.1 Surround Sound" },
+        { "label": "Microphone", "value": "HyperClear Supercardioid" },
+        { "label": "Connectivity", "value": "2.4GHz Wireless, Bluetooth" }
+      ]
+    },
+    {
+      "id": "headset2",
+      "name": "SteelSeries Arctis Nova Pro Wireless",
+      "usdPrice": 350,
+      "phpPrice": 20500,
+      "img": "https://placehold.co/400x400/000/FFF?text=SteelSeries+Arctis",
+      "specs": [
+        { "label": "Type", "value": "Wireless" },
+        { "label": "Audio", "value": "Hi-Res Audio, Active Noise Cancellation" },
+        { "label": "Microphone", "value": "ClearCast Gen 2" },
+        { "label": "Connectivity", "value": "2.4GHz Wireless, Bluetooth" }
+      ]
+    },
+    {
+      "id": "headset3",
+      "name": "Logitech G Pro X",
+      "usdPrice": 130,
+      "phpPrice": 7600,
+      "img": "https://placehold.co/400x400/000/FFF?text=Logitech+G+Pro+X",
+      "specs": [
+        { "label": "Type", "value": "Wired" },
+        { "label": "Audio", "value": "DTS HEADPHONE:X 2.0" },
+        { "label": "Microphone", "value": "Blue VO!CE Technology" },
+        { "label": "Connectivity", "value": "3.5mm Jack" }
+      ]
+    },
+    {
+      "id": "headset4",
+      "name": "HyperX Cloud II",
+      "usdPrice": 99,
+      "phpPrice": 5800,
+      "img": "https://placehold.co/400x400/000/FFF?text=HyperX+Cloud+II",
+      "specs": [
+        { "label": "Type", "value": "Wired" },
+        { "label": "Audio", "value": "7.1 Surround Sound" },
+        { "label": "Microphone", "value": "Noise-cancelling" },
+        { "label": "Connectivity", "value": "USB, 3.5mm Jack" }
+      ]
+    },
+    {
+      "id": "headset5",
+      "name": "Corsair HS80 RGB Wireless",
+      "usdPrice": 150,
+      "phpPrice": 8800,
+      "img": "https://placehold.co/400x400/000/FFF?text=Corsair+HS80",
+      "specs": [
+        { "label": "Type", "value": "Wireless" },
+        { "label": "Audio", "value": "Dolby Audio 7.1" },
+        { "label": "Microphone", "value": "Omni-directional" },
+        { "label": "Connectivity", "value": "Slipstream Wireless" }
+      ]
+    },
+    {
+      "id": "headset6",
+      "name": "Astro A50 Wireless Gen 4",
+      "usdPrice": 300,
+      "phpPrice": 17500,
+      "img": "https://placehold.co/400x400/000/FFF?text=Astro+A50",
+      "specs": [
+        { "label": "Type", "value": "Wireless" },
+        { "label": "Audio", "value": "Dolby Audio" },
+        { "label": "Microphone", "value": "Flip-to-mute" },
+        { "label": "Connectivity", "value": "Base Station (2.4GHz)" }
+      ]
+    },
+    {
+      "id": "headset7",
+      "name": "Sennheiser HD 560S",
+      "usdPrice": 200,
+      "phpPrice": 11800,
+      "img": "https://placehold.co/400x400/000/FFF?text=Sennheiser+HD560S",
+      "specs": [
+        { "label": "Type", "value": "Wired (Open Back)" },
+        { "label": "Audio", "value": "Reference-class Sound" },
+        { "label": "Microphone", "value": "N/A" },
+        { "label": "Connectivity", "value": "6.3mm / 3.5mm" }
+      ]
+    },
+    {
+      "id": "headset8",
+      "name": "Audio-Technica ATH-M50x",
+      "usdPrice": 170,
+      "phpPrice": 10000,
+      "img": "https://placehold.co/400x400/000/FFF?text=Audio-Technica+M50x",
+      "specs": [
+        { "label": "Type", "value": "Wired (Closed Back)" },
+        { "label": "Audio", "value": "Studio Monitor Sound" },
+        { "label": "Microphone", "value": "N/A" },
+        { "label": "Connectivity", "value": "3.5mm" }
+      ]
+    },
+    {
+      "id": "headset9",
+      "name": "EPOS H6PRO",
+      "usdPrice": 180,
+      "phpPrice": 10500,
+      "img": "https://placehold.co/400x400/000/FFF?text=EPOS+H6PRO",
+      "specs": [
+        { "label": "Type", "value": "Wired (Closed Back)" },
+        { "label": "Audio", "value": "Crisp and Powerful" },
+        { "label": "Microphone", "value": "Lift-to-mute boom arm" },
+        { "label": "Connectivity", "value": "3.5mm" }
+      ]
+    },
+    {
+      "id": "headset10",
+      "name": "Sony INZONE H7",
+      "usdPrice": 230,
+      "phpPrice": 13500,
+      "img": "https://placehold.co/400x400/000/FFF?text=Sony+INZONE+H7",
+      "specs": [
+        { "label": "Type", "value": "Wireless" },
+        { "label": "Audio", "value": "360 Spatial Sound" },
+        { "label": "Microphone", "value": "Flip-up boom mic" },
+        { "label": "Connectivity", "value": "2.4GHz Wireless" }
+      ]
+    }
+  ],
+  "monitor": [
+    {
+      "id": "monitor1",
+      "name": "Gigabyte M27Q",
+      "usdPrice": 350,
+      "phpPrice": 20000,
+      "img": "https://placehold.co/400x400/000/FFF?text=Gigabyte+M27Q",
+      "specs": [
+        { "label": "Size", "value": "27 inch" },
+        { "label": "Resolution", "value": "1440p (QHD)" },
+        { "label": "Refresh Rate", "value": "170 Hz" },
+        { "label": "Panel Type", "value": "IPS" }
+      ]
+    },
+    {
+      "id": "monitor2",
+      "name": "ASUS TUF Gaming VG27AQ",
+      "usdPrice": 300,
+      "phpPrice": 17500,
+      "img": "https://placehold.co/400x400/000/FFF?text=ASUS+VG27AQ",
+      "specs": [
+        { "label": "Size", "value": "27 inch" },
+        { "label": "Resolution", "value": "1440p (QHD)" },
+        { "label": "Refresh Rate", "value": "165 Hz" },
+        { "label": "Panel Type", "value": "IPS" }
+      ]
+    },
+    {
+      "id": "monitor3",
+      "name": "Acer Nitro XV272U",
+      "usdPrice": 280,
+      "phpPrice": 16500,
+      "img": "https://placehold.co/400x400/000/FFF?text=Acer+Nitro+XV272U",
+      "specs": [
+        { "label": "Size", "value": "27 inch" },
+        { "label": "Resolution", "value": "1440p (QHD)" },
+        { "label": "Refresh Rate", "value": "144 Hz" },
+        { "label": "Panel Type", "value": "IPS" }
+      ]
+    },
+    {
+      "id": "monitor4",
+      "name": "LG UltraGear 27GN800-B",
+      "usdPrice": 250,
+      "phpPrice": 14700,
+      "img": "https://placehold.co/400x400/000/FFF?text=LG+UltraGear",
+      "specs": [
+        { "label": "Size", "value": "27 inch" },
+        { "label": "Resolution", "value": "1440p (QHD)" },
+        { "label": "Refresh Rate", "value": "144 Hz" },
+        { "label": "Panel Type", "value": "IPS" }
+      ]
+    },
+    {
+      "id": "monitor5",
+      "name": "Dell S2721DGF",
+      "usdPrice": 380,
+      "phpPrice": 22000,
+      "img": "https://placehold.co/400x400/000/FFF?text=Dell+S2721DGF",
+      "specs": [
+        { "label": "Size", "value": "27 inch" },
+        { "label": "Resolution", "value": "1440p (QHD)" },
+        { "label": "Refresh Rate", "value": "165 Hz" },
+        { "label": "Panel Type", "value": "IPS" }
+      ]
+    },
+    {
+      "id": "monitor6",
+      "name": "Samsung Odyssey G7",
+      "usdPrice": 550,
+      "phpPrice": 32000,
+      "img": "https://placehold.co/400x400/000/FFF?text=Samsung+Odyssey+G7",
+      "specs": [
+        { "label": "Size", "value": "27 inch" },
+        { "label": "Resolution", "value": "1440p (QHD)" },
+        { "label": "Refresh Rate", "value": "240 Hz" },
+        { "label": "Panel Type", "value": "VA, Curved" }
+      ]
+    },
+    {
+      "id": "monitor7",
+      "name": "Alienware AW3423DWF",
+      "usdPrice": 900,
+      "phpPrice": 53000,
+      "img": "https://placehold.co/400x400/000/FFF?text=Alienware+AW3423DWF",
+      "specs": [
+        { "label": "Size", "value": "34 inch" },
+        { "label": "Resolution", "value": "3440x1440 (UWQHD)" },
+        { "label": "Refresh Rate", "value": "165 Hz" },
+        { "label": "Panel Type", "value": "OLED" }
+      ]
+    },
+    {
+      "id": "monitor8",
+      "name": "MSI Optix G241",
+      "usdPrice": 150,
+      "phpPrice": 8800,
+      "img": "https://placehold.co/400x400/000/FFF?text=MSI+Optix+G241",
+      "specs": [
+        { "label": "Size", "value": "24 inch" },
+        { "label": "Resolution", "value": "1080p (FHD)" },
+        { "label": "Refresh Rate", "value": "144 Hz" },
+        { "label": "Panel Type", "value": "IPS" }
+      ]
+    },
+    {
+      "id": "monitor9",
+      "name": "ViewSonic XG2431",
+      "usdPrice": 250,
+      "phpPrice": 14500,
+      "img": "https://placehold.co/400x400/000/FFF?text=ViewSonic+XG2431",
+      "specs": [
+        { "label": "Size", "value": "24 inch" },
+        { "label": "Resolution", "value": "1080p (FHD)" },
+        { "label": "Refresh Rate", "value": "240 Hz" },
+        { "label": "Panel Type", "value": "IPS" }
+      ]
+    },
+    {
+      "id": "monitor10",
+      "name": "BenQ Mobiuz EX2710Q",
+      "usdPrice": 320,
+      "phpPrice": 18800,
+      "img": "https://placehold.co/400x400/000/FFF?text=BenQ+Mobiuz",
+      "specs": [
+        { "label": "Size", "value": "27 inch" },
+        { "label": "Resolution", "value": "1440p (QHD)" },
+        { "label": "Refresh Rate", "value": "165 Hz" },
+        { "label": "Panel Type", "value": "IPS" }
+      ]
+    }
   ]
 }
