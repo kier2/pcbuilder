@@ -1,34 +1,36 @@
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed } from "vue";
 import html2pdf from "html2pdf.js";
 
-const pdfContent = ref(null);
-
-const data = ref({
-  components: { selectedParts: {} },
-  peripherals: { selectedParts: {} },
-});
-
-const today = new Date().toLocaleDateString();
-
-onMounted(() => {
-  const stored = localStorage.getItem("pcBuilderData");
-  if (stored) {
-    data.value = JSON.parse(stored);
+// Props from parent
+const props = defineProps({
+  data: {
+    type: Object,
+    required: true
+  },
+  isCurrencyUsd: {
+    type: Boolean,
+    default: false
   }
 });
 
-const totalUsd = computed(() => {
-  let sum = 0;
-  Object.values(data.value.components.selectedParts).forEach((p) => (sum += p.priceUsd));
-  Object.values(data.value.peripherals.selectedParts).forEach((p) => (sum += p.priceUsd));
-  return sum;
-});
+const pdfContent = ref(null);
 
-const totalPhp = computed(() => {
+const today = new Date().toLocaleDateString();
+
+const selectedCurrency = computed(() => props.isCurrencyUsd ? "USD" : "PHP");
+
+const total = computed(() => {
   let sum = 0;
-  Object.values(data.value.components.selectedParts).forEach((p) => (sum += p.pricePhp));
-  Object.values(data.value.peripherals.selectedParts).forEach((p) => (sum += p.pricePhp));
+
+  const currencyKey = selectedCurrency.value === "USD" ? "priceUsd" : "pricePhp";
+
+  Object.values(props.data.components?.selectedParts || {}).forEach(
+    (p) => (sum += p[currencyKey] || 0)
+  );
+  Object.values(props.data.peripherals?.selectedParts || {}).forEach(
+    (p) => (sum += p[currencyKey] || 0)
+  );
   return sum;
 });
 
@@ -39,7 +41,7 @@ const generatePDF = () => {
     margin: 10,
     filename: "quotation.pdf",
     html2canvas: { scale: 2 },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
   };
 
   html2pdf()
@@ -52,81 +54,75 @@ const generatePDF = () => {
     });
 };
 
+const formatCurrency = (value) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: selectedCurrency.value,
+    minimumFractionDigits: 2
+  }).format(value);
+};
+
 defineExpose({ generatePDF });
 </script>
+
 <template>
-  <div ref="pdfContent" class="pdf-design">
-    <div id="quotation" class="max-w-3xl mx-auto bg-white p-10 rounded-lg shadow-lg">
-    <!-- Header -->
-    <div class="text-center mb-6">
-      <h1 class="text-4xl font-bold text-blue-600">Your Company Name</h1>
-      <p class="text-gray-600">Your Address, City, Postal Code</p>
-      <p class="text-gray-600">
-        Email: your.email@example.com | Phone: (123) 456-7890
-      </p>
+  <div ref="pdfContent" class="quotation">
+    <div class="header">
+      <h1>
+        <span style="color: #030712; font-weight: bold;">Pc</span>
+        <span style="color: #49d763; font-weight: bold;">Build</span>
+      </h1>
     </div>
 
-    <!-- Details -->
-    <div class="grid grid-cols-2 gap-4 border-b pb-4 mb-6 text-gray-700">
-      <div><span class="font-semibold text-blue-600">Quotation ID:</span> Q-001</div>
-      <div><span class="font-semibold text-blue-600">Date:</span> August 21, 2025</div>
-      <div><span class="font-semibold text-blue-600">Customer:</span> John Doe</div>
+    <div class="details">
+      <div><span>Date:</span> {{ today }}</div>
     </div>
 
-    <!-- Components -->
-    <h2 class="text-xl font-semibold text-blue-600 border-b pb-1 mb-4">Components</h2>
-    <table class="w-full border-collapse mb-6">
+    <h2>Components</h2>
+    <table>
       <thead>
-        <tr class="bg-blue-50">
-          <th class="text-left py-3 px-4 font-semibold text-gray-700">Item</th>
-          <th class="text-left py-3 px-4 font-semibold text-gray-700">Price (USD)</th>
-          <th class="text-left py-3 px-4 font-semibold text-gray-700">Price (PHP)</th>
+        <tr>
+          <th>Item</th>
+          <th>Price ({{ selectedCurrency }})</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="hover:bg-gray-50">
-          <td class="py-3 px-4">Intel Core i9-14900K</td>
-          <td class="py-3 px-4">$550</td>
-          <td class="py-3 px-4">₱32,000</td>
-        </tr>
-        <tr class="hover:bg-gray-50">
-          <td class="py-3 px-4">GIGABYTE Z790 AORUS ELITE AX</td>
-          <td class="py-3 px-4">$250</td>
-          <td class="py-3 px-4">₱15,000</td>
+        <tr v-for="(item, key) in props.data.components?.selectedParts" :key="key">
+          <td>{{ item.name }}</td>
+          <td>
+            {{ formatCurrency(
+              props.selectedCurrency === "USD" ? item.priceUsd : item.pricePhp,
+              props.selectedCurrency
+            ) }}
+          </td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Peripherals -->
-    <h2 class="text-xl font-semibold text-blue-600 border-b pb-1 mb-4">Peripherals</h2>
-    <table class="w-full border-collapse mb-6">
+    <h2>Peripherals</h2>
+    <table>
       <thead>
-        <tr class="bg-blue-50">
-          <th class="text-left py-3 px-4 font-semibold text-gray-700">Item</th>
-          <th class="text-left py-3 px-4 font-semibold text-gray-700">Price (USD)</th>
-          <th class="text-left py-3 px-4 font-semibold text-gray-700">Price (PHP)</th>
+        <tr>
+          <th>Item</th>
+          <th>Price ({{ selectedCurrency }})</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="hover:bg-gray-50">
-          <td class="py-3 px-4">Acer Nitro XV272U</td>
-          <td class="py-3 px-4">$280</td>
-          <td class="py-3 px-4">₱16,500</td>
+        <tr v-for="(item, key) in props.data.peripherals?.selectedParts" :key="key">
+          <td>{{ item.name }}</td>
+          <td>
+            {{ formatCurrency(
+              props.selectedCurrency === "USD" ? item.priceUsd : item.pricePhp,
+              props.selectedCurrency
+            ) }}
+          </td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Totals -->
-    <div class="text-right border-t pt-4 mt-6">
-      <p class="text-lg font-semibold text-gray-800">
-        <span class="text-blue-600">Total (USD):</span> $1080
-      </p>
-      <p class="text-lg font-semibold text-gray-800">
-        <span class="text-blue-600">Total (PHP):</span> ₱63,500
-      </p>
+    <div class="totals">
+      <span>Total ({{ selectedCurrency }}):</span>
+      {{ formatCurrency(total, props.selectedCurrency) }}
     </div>
-  </div>
   </div>
 </template>
-
-

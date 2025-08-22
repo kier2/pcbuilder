@@ -13,6 +13,7 @@ const subtotal = ref(0);
 const activeTab = ref('Components');
 const isUsd = ref(false)
 
+
 const state = ref({
   components: {
     selectionItem: {},
@@ -202,8 +203,10 @@ watch(isUsd, (newVal) => {
       }"
       :is-currency-usd="isUsd"
       :subtotal="subtotal"
+      :item-summary="state"
       @save="handleSave"
     />
-    <PDFGeneration ref="pdfGen" />
+    <!-- PDF -->
+    <PDFGeneration :data="state" :is-currency-usd="isUsd" ref="pdfGen"  />
   </main>
 </template>

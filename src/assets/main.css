@@ -18,3 +18,83 @@
 .custom-scrollbar::-webkit-scrollbar-thumb {
   @apply bg-gray-500 rounded-full;
 }
+:root{
+  --pdf-main-txt-color: #030712;
+}
+/* PDF Generation Styling */
+.quotation {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.quotation .header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quotation .header h1 {
+  color: #000;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.quotation .details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.quotation .details span {
+  font-weight: bold;
+  color: var(--pdf-main-txt-color);
+}
+
+.quotation h2 {
+  font-size: 20px;
+  color: var(--pdf-main-txt-color);
+  /* border-bottom: 2px solid #e5e7eb; */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.quotation table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.quotation table th,
+.quotation table td {
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  text-align: left;
+}
+
+.quotation table th {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.quotation table tr:hover {
+  background: #f9fafb;
+}
+
+.quotation .totals {
+  text-align: right;
+  border-top: 2px solid #e5e7eb;
+  padding-top: 15px;
+}
+
+.quotation .totals span {
+  color: var(--pdf-main-txt-color);
+  font-weight: bold;
+}

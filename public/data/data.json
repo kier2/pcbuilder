@@ -445,6 +445,320 @@
       ]
     }
   ],
+  "ram": [
+  {
+    "id": "ram1",
+    "name": "Corsair Vengeance LPX 16GB (2x8GB) DDR4 3200MHz",
+    "type": "DDR4",
+    "capacity": "16GB (2x8GB)",
+    "speed": "3200MHz",
+    "usdPrice": 75,
+    "phpPrice": 4200,
+    "img": "https://placehold.co/400x400/000/FFF?text=16GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL16" },
+      { "label": "Voltage", "value": "1.35V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  },
+  {
+    "id": "ram2",
+    "name": "G.Skill Trident Z RGB 32GB (2x16GB) DDR4 3600MHz",
+    "type": "DDR4",
+    "capacity": "32GB (2x16GB)",
+    "speed": "3600MHz",
+    "usdPrice": 150,
+    "phpPrice": 8500,
+    "img": "https://placehold.co/400x400/000/FFF?text=32GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL18" },
+      { "label": "Voltage", "value": "1.35V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  },
+  {
+    "id": "ram3",
+    "name": "Kingston Fury Beast 16GB DDR4 3200MHz",
+    "type": "DDR4",
+    "capacity": "16GB (1x16GB)",
+    "speed": "3200MHz",
+    "usdPrice": 70,
+    "phpPrice": 4000,
+    "img": "https://placehold.co/400x400/000/FFF?text=16GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL16" },
+      { "label": "Voltage", "value": "1.35V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Single Channel" }
+    ]
+  },
+  {
+    "id": "ram4",
+    "name": "TeamGroup T-Force Delta RGB 32GB (2x16GB) DDR4 4000MHz",
+    "type": "DDR4",
+    "capacity": "32GB (2x16GB)",
+    "speed": "4000MHz",
+    "usdPrice": 190,
+    "phpPrice": 10500,
+    "img": "https://placehold.co/400x400/000/FFF?text=32GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL18" },
+      { "label": "Voltage", "value": "1.4V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  },
+  {
+    "id": "ram5",
+    "name": "Corsair Dominator Platinum RGB 64GB (2x32GB) DDR4 3600MHz",
+    "type": "DDR4",
+    "capacity": "64GB (2x32GB)",
+    "speed": "3600MHz",
+    "usdPrice": 320,
+    "phpPrice": 18000,
+    "img": "https://placehold.co/400x400/000/FFF?text=64GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL18" },
+      { "label": "Voltage", "value": "1.35V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  },
+  {
+    "id": "ram6",
+    "name": "G.Skill Ripjaws V 16GB (2x8GB) DDR4 3200MHz",
+    "type": "DDR4",
+    "capacity": "16GB (2x8GB)",
+    "speed": "3200MHz",
+    "usdPrice": 70,
+    "phpPrice": 3800,
+    "img": "https://placehold.co/400x400/000/FFF?text=16GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL16" },
+      { "label": "Voltage", "value": "1.35V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  },
+  {
+    "id": "ram7",
+    "name": "Crucial Ballistix 32GB (2x16GB) DDR4 3200MHz",
+    "type": "DDR4",
+    "capacity": "32GB (2x16GB)",
+    "speed": "3200MHz",
+    "usdPrice": 120,
+    "phpPrice": 6800,
+    "img": "https://placehold.co/400x400/000/FFF?text=32GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL16" },
+      { "label": "Voltage", "value": "1.35V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  },
+  {
+    "id": "ram8",
+    "name": "Patriot Viper Steel 16GB (2x8GB) DDR4 3733MHz",
+    "type": "DDR4",
+    "capacity": "16GB (2x8GB)",
+    "speed": "3733MHz",
+    "usdPrice": 95,
+    "phpPrice": 5200,
+    "img": "https://placehold.co/400x400/000/FFF?text=16GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL17" },
+      { "label": "Voltage", "value": "1.35V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  },
+  {
+    "id": "ram9",
+    "name": "ADATA XPG Spectrix D50 RGB 32GB (2x16GB) DDR4 3600MHz",
+    "type": "DDR4",
+    "capacity": "32GB (2x16GB)",
+    "speed": "3600MHz",
+    "usdPrice": 160,
+    "phpPrice": 9000,
+    "img": "https://placehold.co/400x400/000/FFF?text=32GB+DDR4",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL18" },
+      { "label": "Voltage", "value": "1.35V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  },
+  {
+    "id": "ram10",
+    "name": "Kingston Fury Renegade 64GB (2x32GB) DDR5 6000MHz",
+    "type": "DDR5",
+    "capacity": "64GB (2x32GB)",
+    "speed": "6000MHz",
+    "usdPrice": 450,
+    "phpPrice": 25000,
+    "img": "https://placehold.co/400x400/000/FFF?text=64GB+DDR5",
+    "specs": [
+      { "label": "CAS Latency", "value": "CL36" },
+      { "label": "Voltage", "value": "1.25V" },
+      { "label": "Form Factor", "value": "DIMM" },
+      { "label": "Channel", "value": "Dual Channel" }
+    ]
+  }
+],
+  "gpu": [
+    {
+      "id": "gpu1",
+      "name": "NVIDIA GeForce RTX 4090",
+      "chipset": "Ada Lovelace",
+      "vram": "24GB GDDR6X",
+      "usdPrice": 1600,
+      "phpPrice": 120000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RTX+4090",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.52 GHz" },
+        { "label": "CUDA Cores", "value": "16384" },
+        { "label": "TDP", "value": "450W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 3x DisplayPort 1.4a" }
+      ]
+    },
+    {
+      "id": "gpu2",
+      "name": "NVIDIA GeForce RTX 4080 Super",
+      "chipset": "Ada Lovelace",
+      "vram": "16GB GDDR6X",
+      "usdPrice": 1000,
+      "phpPrice": 75000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RTX+4080S",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.55 GHz" },
+        { "label": "CUDA Cores", "value": "10240" },
+        { "label": "TDP", "value": "320W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 3x DisplayPort 1.4a" }
+      ]
+    },
+    {
+      "id": "gpu3",
+      "name": "NVIDIA GeForce RTX 4070 Ti",
+      "chipset": "Ada Lovelace",
+      "vram": "12GB GDDR6X",
+      "usdPrice": 800,
+      "phpPrice": 52000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RTX+4070Ti",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.61 GHz" },
+        { "label": "CUDA Cores", "value": "7680" },
+        { "label": "TDP", "value": "285W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 3x DisplayPort 1.4a" }
+      ]
+    },
+    {
+      "id": "gpu4",
+      "name": "NVIDIA GeForce RTX 4070",
+      "chipset": "Ada Lovelace",
+      "vram": "12GB GDDR6X",
+      "usdPrice": 600,
+      "phpPrice": 39000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RTX+4070",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.47 GHz" },
+        { "label": "CUDA Cores", "value": "5888" },
+        { "label": "TDP", "value": "200W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 3x DisplayPort 1.4a" }
+      ]
+    },
+    {
+      "id": "gpu5",
+      "name": "NVIDIA GeForce RTX 4060 Ti",
+      "chipset": "Ada Lovelace",
+      "vram": "8GB GDDR6",
+      "usdPrice": 400,
+      "phpPrice": 26000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RTX+4060Ti",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.54 GHz" },
+        { "label": "CUDA Cores", "value": "4352" },
+        { "label": "TDP", "value": "160W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 3x DisplayPort 1.4a" }
+      ]
+    },
+    {
+      "id": "gpu6",
+      "name": "NVIDIA GeForce RTX 4060",
+      "chipset": "Ada Lovelace",
+      "vram": "8GB GDDR6",
+      "usdPrice": 300,
+      "phpPrice": 19000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RTX+4060",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.46 GHz" },
+        { "label": "CUDA Cores", "value": "3072" },
+        { "label": "TDP", "value": "115W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 3x DisplayPort 1.4a" }
+      ]
+    },
+    {
+      "id": "gpu7",
+      "name": "AMD Radeon RX 7900 XTX",
+      "chipset": "RDNA 3",
+      "vram": "24GB GDDR6",
+      "usdPrice": 999,
+      "phpPrice": 69000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RX+7900+XTX",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.5 GHz" },
+        { "label": "Stream Processors", "value": "6144" },
+        { "label": "TDP", "value": "355W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 2x DisplayPort 2.1, USB-C" }
+      ]
+    },
+    {
+      "id": "gpu8",
+      "name": "AMD Radeon RX 7900 XT",
+      "chipset": "RDNA 3",
+      "vram": "20GB GDDR6",
+      "usdPrice": 899,
+      "phpPrice": 60000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RX+7900+XT",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.4 GHz" },
+        { "label": "Stream Processors", "value": "5376" },
+        { "label": "TDP", "value": "315W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 2x DisplayPort 2.1, USB-C" }
+      ]
+    },
+    {
+      "id": "gpu9",
+      "name": "AMD Radeon RX 7800 XT",
+      "chipset": "RDNA 3",
+      "vram": "16GB GDDR6",
+      "usdPrice": 500,
+      "phpPrice": 34000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RX+7800+XT",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.4 GHz" },
+        { "label": "Stream Processors", "value": "3840" },
+        { "label": "TDP", "value": "263W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 2x DisplayPort 2.1" }
+      ]
+    },
+    {
+      "id": "gpu10",
+      "name": "AMD Radeon RX 7700 XT",
+      "chipset": "RDNA 3",
+      "vram": "12GB GDDR6",
+      "usdPrice": 450,
+      "phpPrice": 30000,
+      "img": "https://placehold.co/400x400/000/FFF?text=RX+7700+XT",
+      "specs": [
+        { "label": "Boost Clock", "value": "2.5 GHz" },
+        { "label": "Stream Processors", "value": "3456" },
+        { "label": "TDP", "value": "245W" },
+        { "label": "Outputs", "value": "HDMI 2.1, 2x DisplayPort 2.1" }
+      ]
+    }
+  ],
   "headset": [
     {
       "id": "headset1",
